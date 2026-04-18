@@ -24,8 +24,34 @@ SRC_DIR = src
 OBJ_DIR = obj
 SIM_EXEC = sim_proyecto
 GEN_EXEC = trace_generator
+SIM_SOURCES = $(SRC_DIR)/main.cpp $(wildcard $(SRC_DIR)/sim/*.cpp)
 
-all: check_systemc $(GEN_EXEC) $(SIM_EXEC)
+.PHONY: all build test test_extra check_systemc clean
+
+all: test
+
+build: check_systemc $(GEN_EXEC) $(SIM_EXEC)
+
+test: build
+	@echo "Ejecutando pruebas..."
+	@mkdir -p traces
+	./$(GEN_EXEC)
+	@echo "Propuesta 1: Multiplicacion de Matrices Bloqueada (Alta Contencion)"
+	./$(SIM_EXEC) traces/trace_matmul.txt msi
+	./$(SIM_EXEC) traces/trace_matmul.txt firefly
+	@echo "Propuesta 2: Pipeline de Criptografia/Red (Productor-Consumidor)"
+	./$(SIM_EXEC) traces/trace_pipeline.txt msi
+	./$(SIM_EXEC) traces/trace_pipeline.txt firefly
+	@echo "Pruebas finalizadas correctamente."
+
+test_extra: build
+	@echo "Ejecutando pruebas extra..."
+	@mkdir -p traces
+	./$(GEN_EXEC)
+	@echo "Escenario extra (no parte de las 2 propuestas): Patron migratorio"
+	./$(SIM_EXEC) traces/trace_migratorio.txt msi
+	./$(SIM_EXEC) traces/trace_migratorio.txt firefly
+	@echo "Pruebas extra finalizadas correctamente."
 
 check_systemc:
 	@if [ -z "$(SYSTEMC_INCLUDE)" ] || [ -z "$(SYSTEMC_LIBDIR)" ]; then \
@@ -40,8 +66,8 @@ $(GEN_EXEC): $(SRC_DIR)/trace_generator.cpp
 	$(CXX) $(CXX_STD) $< -o $@
 
 # Compilar el Simulador SystemC
-$(SIM_EXEC): $(SRC_DIR)/main.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+$(SIM_EXEC): $(SIM_SOURCES)
+	$(CXX) $(CXXFLAGS) $(SIM_SOURCES) -o $@ $(LDFLAGS)
 
 clean:
 	rm -f $(SIM_EXEC) $(GEN_EXEC) traces/*.txt

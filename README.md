@@ -23,7 +23,7 @@ apt-cache policy libsystemc-dev
 ls -l /usr/include/systemc /usr/lib/x86_64-linux-gnu/libsystemc.so
 ```
 
-## 3. Compilar
+## 3. Compilar y probar
 
 Desde la raiz del repositorio:
 
@@ -32,10 +32,33 @@ make clean
 make
 ```
 
+Con esta configuracion, `make` realiza dos cosas:
+
+1. Compila los binarios.
+2. Ejecuta una bateria de pruebas (`trace_generator` + simulaciones).
+
 Esto genera:
 
 - `trace_generator` (generador de trazas)
 - `sim_proyecto` (simulador con SystemC)
+
+Las pruebas automaticas por defecto (`make`) ejecutan las 2 propuestas del equipo, cada una con 2 protocolos:
+
+- `traces/trace_matmul.txt` (alta contencion)
+- `traces/trace_pipeline.txt` (productor-consumidor)
+- Protocolos: `msi` y `firefly`
+
+Existe un escenario adicional opcional (`trace_migratorio`) para pruebas exploratorias:
+
+```bash
+make test_extra
+```
+
+Si solo quieren compilar sin correr pruebas:
+
+```bash
+make build
+```
 
 ## 4. Ejecutar
 
@@ -50,6 +73,19 @@ Esto genera:
 ```bash
 ./sim_proyecto
 ```
+
+Tambien puedes especificar traza y protocolo:
+
+```bash
+./sim_proyecto traces/trace_pipeline.txt msi
+./sim_proyecto traces/trace_pipeline.txt firefly
+```
+
+El simulador imprime:
+
+- transacciones de bus
+- transiciones de estado por cache L1
+- estadisticas finales por interconnect y por cache
 
 ## 5. Limpiar binarios y trazas
 
