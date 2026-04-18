@@ -1,0 +1,12 @@
+# Binarios locales
+sim_proyecto
+trace_generator
+
+# Salidas de pruebas
+traces/
+trace_matmul.txt
+
+# Archivos temporales de editor/sistema
+*.swp
+*~
+.DS_Store
