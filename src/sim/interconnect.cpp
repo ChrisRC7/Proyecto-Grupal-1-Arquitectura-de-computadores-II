@@ -6,8 +6,17 @@
 
 #include "l1_cache.h"
 
-Interconnect::Interconnect(sc_module_name name, Protocol selected_protocol)
-    : sc_module(name), protocol(selected_protocol) {}
+Interconnect::Interconnect(sc_module_name name, Protocol selected_protocol,
+                           const TimingConfig& timing_config)
+    : sc_module(name), protocol(selected_protocol), timing(timing_config) {
+    wf_last_addr = 0;
+    wf_last_op = 0;
+    wf_requester_id = 0;
+    wf_total_tx = 0;
+    wf_invalidations = 0;
+    wf_updates = 0;
+    wf_shared_access = 0;
+}
 
 void Interconnect::register_cache(L1Cache* cache) {
     caches.push_back(cache);
@@ -16,6 +25,10 @@ void Interconnect::register_cache(L1Cache* cache) {
 void Interconnect::handle_read(int requester_id, std::uint64_t addr) {
     stats.total++;
     stats.reads++;
+    wf_last_op = 1;
+    wf_requester_id = static_cast<sc_dt::sc_uint<3>>(requester_id);
+    wf_last_addr = static_cast<sc_dt::sc_uint<64>>(addr);
+    wf_total_tx = static_cast<sc_dt::sc_uint<64>>(stats.total);
 
     std::cout << "@" << sc_time_stamp() << " | Bus: READ de PE" << requester_id << " en 0x"
               << std::hex << addr << std::dec << std::endl;
@@ -44,12 +57,19 @@ void Interconnect::handle_read(int requester_id, std::uint64_t addr) {
         }
     }
 
-    wait(2, SC_NS);
+    std::uint64_t total_latency = timing.bus_latency_ns;
+    total_latency += shared_copy_exists ? timing.shared_latency_ns : timing.memory_latency_ns;
+    wf_shared_access = shared_copy_exists ? 1 : 0;
+    wait(static_cast<double>(total_latency), SC_NS);
 }
 
 void Interconnect::handle_write(int requester_id, std::uint64_t addr) {
     stats.total++;
     stats.writes++;
+    wf_last_op = 2;
+    wf_requester_id = static_cast<sc_dt::sc_uint<3>>(requester_id);
+    wf_last_addr = static_cast<sc_dt::sc_uint<64>>(addr);
+    wf_total_tx = static_cast<sc_dt::sc_uint<64>>(stats.total);
 
     std::cout << "@" << sc_time_stamp() << " | Bus: WRITE de PE" << requester_id << " en 0x"
               << std::hex << addr << std::dec << std::endl;
@@ -75,6 +95,7 @@ void Interconnect::handle_write(int requester_id, std::uint64_t addr) {
         for (L1Cache* sharer : sharers) {
             sharer->set_state(addr, CacheState::I, "WRITE remoto: invalidacion MSI");
             stats.invalidations++;
+            wf_invalidations = static_cast<sc_dt::sc_uint<64>>(stats.invalidations);
         }
         requester->set_state(addr, CacheState::M, "WRITE propietario MSI");
     } else {
@@ -82,6 +103,7 @@ void Interconnect::handle_write(int requester_id, std::uint64_t addr) {
             for (L1Cache* sharer : sharers) {
                 sharer->set_state(addr, CacheState::S, "WRITE update Firefly");
                 stats.updates++;
+                wf_updates = static_cast<sc_dt::sc_uint<64>>(stats.updates);
             }
             requester->set_state(addr, CacheState::S, "WRITE compartido Firefly");
         } else {
@@ -89,7 +111,15 @@ void Interconnect::handle_write(int requester_id, std::uint64_t addr) {
         }
     }
 
-    wait(2, SC_NS);
+    std::uint64_t total_latency = timing.bus_latency_ns + timing.coherence_latency_ns;
+    if (sharers.empty()) {
+        total_latency += timing.memory_latency_ns;
+        wf_shared_access = 0;
+    } else {
+        total_latency += timing.shared_latency_ns;
+        wf_shared_access = 1;
+    }
+    wait(static_cast<double>(total_latency), SC_NS);
 }
 
 void Interconnect::print_stats() const {

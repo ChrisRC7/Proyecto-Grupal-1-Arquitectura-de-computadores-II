@@ -1,0 +1,44 @@
+--- Iniciando Simulacion HW con 4 PEs ---
+Trace: traces/trace_pipeline.txt
+Protocolo: Firefly
+L1 config: size=1024B, block=64B, ways=2, replacement=LRU, l1_hit=1ns, l1_miss=1ns
+Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
+
+Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
+@2 ns | Bus: WRITE de PE0 en 0x5000
+@2 ns | L1_0 : 0x5000 I -> M (WRITE privado Firefly)
+@2 ns | Bus: READ de PE1 en 0x5000
+@2 ns | L1_0 : 0x5000 M -> S (READ remoto: downgrade M->S)
+@2 ns | L1_1 : 0x5000 I -> S (READ miss compartido)
+@2 ns | Bus: READ de PE2 en 0x5000
+@2 ns | L1_2 : 0x5000 I -> S (READ miss compartido)
+@7 ns | Bus: WRITE de PE1 en 0x5000
+@12 ns | Bus: WRITE de PE0 en 0x5010
+@13 ns | Bus: READ de PE2 en 0x5040
+@13 ns | L1_2 : 0x5040 I -> S (READ miss memoria)
+@16 ns | Bus: WRITE de PE1 en 0x5010
+@19 ns | Bus: WRITE de PE0 en 0x5020
+@25 ns | Bus: WRITE de PE1 en 0x5020
+@26 ns | Bus: WRITE de PE0 en 0x5030
+@33 ns | Bus: WRITE de PE0 en 0x5040
+@33 ns | L1_0 : 0x5040 I -> S (WRITE compartido Firefly)
+@34 ns | Bus: WRITE de PE1 en 0x5030
+@41 ns | Bus: READ de PE1 en 0x5040
+@41 ns | L1_1 : 0x5040 I -> S (READ miss compartido)
+@46 ns | Bus: WRITE de PE1 en 0x5040
+Waveform VCD: results/waveforms/sim_wave.vcd
+--- Simulacion Finalizada ---
+
+=== ESTADISTICAS INTERCONNECT (Firefly) ===
+Transacciones totales: 14
+Lecturas: 4
+Escrituras: 10
+Invalidaciones: 0
+Updates: 17
+Downgrades M->S: 1
+
+=== ESTADISTICAS L1 ===
+L1_0 | RH=0 RM=0 WH=3 WM=2 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_1 | RH=3 RM=2 WH=5 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_2 | RH=3 RM=2 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_3 | RH=0 RM=0 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)

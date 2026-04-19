@@ -26,11 +26,18 @@ SIM_EXEC = sim_proyecto
 GEN_EXEC = trace_generator
 SIM_SOURCES = $(SRC_DIR)/main.cpp $(wildcard $(SRC_DIR)/sim/*.cpp)
 
-.PHONY: all build test test_extra check_systemc clean
+.PHONY: all build test test_extra test_csv plots waveforms check_systemc check_hw_pure_systemc clean
 
 all: test
 
-build: check_systemc $(GEN_EXEC) $(SIM_EXEC)
+build: check_systemc check_hw_pure_systemc $(GEN_EXEC) $(SIM_EXEC)
+
+check_hw_pure_systemc:
+	@if find src/sim -type f -name "*.py" | grep -q .; then \
+		echo "Error: El modelo de hardware debe ser exclusivamente SystemC/TLM (C++)."; \
+		echo "No se permiten archivos Python dentro de src/sim."; \
+		exit 1; \
+	fi
 
 test: build
 	@echo "Ejecutando pruebas..."
@@ -53,6 +60,21 @@ test_extra: build
 	./$(SIM_EXEC) traces/trace_migratorio.txt firefly
 	@echo "Pruebas extra finalizadas correctamente."
 
+test_csv: build
+	@echo "Generando CSV + bitacoras (3 traces x 2 protocolos)..."
+	python3 scripts/run_experiments.py --include-extra
+
+plots: test_csv
+	@echo "Generando graficas PNG desde CSV..."
+	python3 scripts/plot_results.py
+
+waveforms: build
+	@echo "Generando waveform VCD (trace_pipeline + MSI)..."
+	@mkdir -p results/waveforms traces
+	./$(GEN_EXEC)
+	./$(SIM_EXEC) traces/trace_pipeline.txt msi 1024 64 2 lru 1 1 1 5 2 2 results/waveforms/pipeline_msi
+	@echo "Listo: results/waveforms/pipeline_msi.vcd"
+
 check_systemc:
 	@if [ -z "$(SYSTEMC_INCLUDE)" ] || [ -z "$(SYSTEMC_LIBDIR)" ]; then \
 		echo "Error: No se encontró SystemC."; \
@@ -71,3 +93,4 @@ $(SIM_EXEC): $(SIM_SOURCES)
 
 clean:
 	rm -f $(SIM_EXEC) $(GEN_EXEC) traces/*.txt
+	rm -rf results
