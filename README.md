@@ -9,6 +9,14 @@ Guia rapida para instalar dependencias, compilar y ejecutar el proyecto en Linux
 - `make`
 - Biblioteca de desarrollo de SystemC
 
+## Restriccion de Implementacion de Hardware
+
+- El modelo de hardware (`interconnect`, caches y PEs en `src/sim`) se implementa
+	exclusivamente en SystemC/TLM (C++).
+- Queda prohibido usar Python para el modelo de hardware.
+- Python en este repositorio se usa solo para automatizacion/analisis de resultados
+	(scripts en `scripts/`).
+
 ## 2. Instalacion de dependencias (Ubuntu/Debian)
 
 ```bash
@@ -60,6 +68,34 @@ Si solo quieren compilar sin correr pruebas:
 make build
 ```
 
+Para ejecutar las 3 traces contra ambos protocolos y exportar resultados en CSV + bitacoras:
+
+```bash
+make test_csv
+```
+
+Para ademas generar graficas PNG desde esos CSV:
+
+```bash
+make plots
+```
+
+Para generar waveforms VCD (visualizacion temporal de hardware):
+
+```bash
+make waveforms
+```
+
+Esto produce por defecto:
+
+- `results/waveforms/pipeline_msi.vcd`
+
+Para abrirlo con GTKWave:
+
+```bash
+gtkwave results/waveforms/pipeline_msi.vcd
+```
+
 ## 4. Ejecutar
 
 ### 4.1 Generar trazas
@@ -81,11 +117,56 @@ Tambien puedes especificar traza y protocolo:
 ./sim_proyecto traces/trace_pipeline.txt firefly
 ```
 
+Tambien puedes especificar parametros de cache L1 (bytes):
+
+```bash
+./sim_proyecto <trace> <protocolo> \
+	<l1_size_bytes> <block_size_bytes> <associativity> <replacement> \
+	<l1_hit_ns> <l1_miss_ns> <bus_ns> <mem_ns> <shared_ns> <coherence_ns>
+
+# Ejemplo: L1 de 4KB, bloque de 64B, 4-way, reemplazo LRU
+./sim_proyecto traces/trace_pipeline.txt msi 4096 64 4 lru
+
+# Ejemplo: misma cache pero FIFO
+./sim_proyecto traces/trace_pipeline.txt firefly 4096 64 4 fifo
+
+# Ejemplo con latencias diferenciadas
+# l1_hit=1ns l1_miss=1ns bus=1ns mem=5ns shared=2ns coherence=2ns
+./sim_proyecto traces/trace_pipeline.txt msi 4096 64 4 lru 1 1 1 5 2 2
+
+# Ejemplo indicando nombre base del waveform VCD de salida
+./sim_proyecto traces/trace_pipeline.txt msi 4096 64 4 lru 1 1 1 5 2 2 results/waveforms/mi_corrida
+```
+
+Si no se pasan esos argumentos, se usan defaults:
+
+- L1 size = 1024 bytes
+- block size = 64 bytes
+- associativity = 2
+- replacement = LRU
+- l1_hit = 1 ns
+- l1_miss = 1 ns
+- bus = 1 ns
+- memoria = 5 ns
+- compartida = 2 ns
+- coherencia = 2 ns
+
 El simulador imprime:
 
 - transacciones de bus
 - transiciones de estado por cache L1
 - estadisticas finales por interconnect y por cache
+- evictions y conflict misses de L1 (explicitos)
+
+Con `make test_csv` se generan automaticamente:
+
+- `results/interconnect_stats.csv`
+- `results/l1_stats.csv`
+- bitacoras por corrida en `results/logs/*.log`
+
+Con `make plots` se generan graficas en:
+
+- `results/plots/*.png`
 
 ## 5. Limpiar binarios y trazas
 
