@@ -52,3 +52,14 @@ ReplacementPolicy parse_replacement_policy_arg(const std::string& policy_text) {
     }
     return ReplacementPolicy::LRU;
 }
+
+std::string transaction_to_string(BusTransaction tx) {
+    switch (tx) {
+        case BusTransaction::BusRead:       return "BusRead";
+        case BusTransaction::BusReadX:      return "BusReadX";
+        case BusTransaction::BusUpgrade:    return "BusUpgrade";
+        case BusTransaction::BusUpdate:     return "BusUpdate";
+        case BusTransaction::BusInvalidate: return "BusInvalidate";
+    }
+    return "?";
+}
