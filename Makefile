@@ -26,7 +26,7 @@ SIM_EXEC = sim_proyecto
 GEN_EXEC = trace_generator
 SIM_SOURCES = $(SRC_DIR)/main.cpp $(wildcard $(SRC_DIR)/sim/*.cpp)
 
-.PHONY: all build test test_extra test_csv plots waveforms check_systemc check_hw_pure_systemc clean
+.PHONY: all build test test_extra test_csv experiments summary plots waveforms check_systemc check_hw_pure_systemc clean
 
 all: test
 
@@ -63,6 +63,13 @@ test_extra: build
 test_csv: build
 	@echo "Generando CSV + bitacoras (3 traces x 2 protocolos)..."
 	python3 scripts/run_experiments.py --include-extra
+
+experiments: test_csv
+	@echo "Lote reproducible finalizado. Ver results/resumen_experimentos.md"
+
+summary: test_csv
+	@echo "Resumen agregado de experimentos:"
+	@cat results/resumen_experimentos.md
 
 plots: test_csv
 	@echo "Generando graficas PNG desde CSV..."

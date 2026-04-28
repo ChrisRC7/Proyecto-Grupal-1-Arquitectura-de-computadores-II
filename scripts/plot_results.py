@@ -44,14 +44,47 @@ def make_bar_chart(plt, out_path: Path, title: str, labels, msi_vals, firefly_va
     width = 0.36
 
     fig, ax = plt.subplots(figsize=(10, 5))
-    ax.bar([i - width / 2 for i in x], msi_vals, width=width, label="MSI")
-    ax.bar([i + width / 2 for i in x], firefly_vals, width=width, label="Firefly")
+    msi_bars = ax.bar([i - width / 2 for i in x], msi_vals, width=width, label="MSI")
+    firefly_bars = ax.bar([i + width / 2 for i in x], firefly_vals, width=width, label="Firefly")
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=20)
     ax.set_title(title)
     ax.set_ylabel(y_label)
     ax.legend()
     ax.grid(axis="y", alpha=0.25)
+
+    max_value = max([0.0, *msi_vals, *firefly_vals])
+    ax.set_ylim(bottom=0, top=(max_value * 1.15 if max_value > 0 else 1.0))
+
+    def annotate_bars(bars, values):
+        for bar, value in zip(bars, values):
+            label = f"{value:g}"
+            y_pos = bar.get_height() if value > 0 else 0
+            offset = 3 if value > 0 else 1
+            ax.annotate(
+                label,
+                (bar.get_x() + bar.get_width() / 2, y_pos),
+                xytext=(0, offset),
+                textcoords="offset points",
+                ha="center",
+                va="bottom",
+                fontsize=8,
+            )
+
+    annotate_bars(msi_bars, msi_vals)
+    annotate_bars(firefly_bars, firefly_vals)
+
+    if all(value == 0 for value in firefly_vals):
+        ax.text(
+            0.99,
+            0.96,
+            "Firefly = 0 en esta metrica",
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            fontsize=8,
+            color="dimgray",
+        )
     fig.tight_layout()
     fig.savefig(out_path, dpi=150)
     plt.close(fig)

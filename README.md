@@ -16,12 +16,16 @@ Guia rapida para instalar dependencias, compilar y ejecutar el proyecto en Linux
 - Queda prohibido usar Python para el modelo de hardware.
 - Python en este repositorio se usa solo para automatizacion/analisis de resultados
 	(scripts en `scripts/`).
+- Las trazas se generan localmente con `trace_generator` en C++; no dependen de Python.
+- Para la presentacion, la caché de referencia se mantiene con tamaño definido y
+	configuracion 2-way por defecto.
 
 ## 2. Instalacion de dependencias (Ubuntu/Debian)
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential libsystemc-dev
+sudo apt install gtkwave
 ```
 
 Verificar instalacion de SystemC:
@@ -56,6 +60,10 @@ Las pruebas automaticas por defecto (`make`) ejecutan las 2 propuestas del equip
 - `traces/trace_pipeline.txt` (productor-consumidor)
 - Protocolos: `msi` y `firefly`
 
+El generador de trazas es local y puede producir patrones deterministas o variables
+sin salir del repositorio. Si se quiere repetir exactamente una corrida, basta con
+conservar la misma salida generada por `trace_generator`.
+
 Existe un escenario adicional opcional (`trace_migratorio`) para pruebas exploratorias:
 
 ```bash
@@ -73,6 +81,19 @@ Para ejecutar las 3 traces contra ambos protocolos y exportar resultados en CSV 
 ```bash
 make test_csv
 ```
+
+Para ejecutar el lote reproducible y dejar un resumen agregado en Markdown:
+
+```bash
+make experiments
+```
+
+El lote genera:
+
+- `results/interconnect_stats.csv`
+- `results/l1_stats.csv`
+- `results/logs/*.log`
+- `results/resumen_experimentos.md`
 
 Para ademas generar graficas PNG desde esos CSV:
 
@@ -157,6 +178,20 @@ El simulador imprime:
 - transiciones de estado por cache L1
 - estadisticas finales por interconnect y por cache
 - evictions y conflict misses de L1 (explicitos)
+
+### 4.3 Conjunto formal de transacciones de bus
+
+El modelo usa el siguiente conjunto formal de transacciones:
+
+- `BusRead`: lectura de un bloque sin copia local, con posible comparticion en `S`.
+- `BusReadX`: lectura con intencion de escritura desde `I`; invalida copias remotas y concede exclusividad.
+- `BusUpgrade`: escritura desde `S`; solo invalida a los demas y evita traer el bloque de memoria.
+- `BusUpdate`: escritura con politica Firefly; actualiza todas las copias remotas.
+- `BusInvalidate`: invalidacion interna usada por la ruta MSI.
+
+La invalidacion no se trata como un dato utilizable: una linea marcada en `I` se
+considera invalida y cualquier acceso futuro debe volver a traer o actualizar el
+bloque antes de usarlo.
 
 Con `make test_csv` se generan automaticamente:
 
