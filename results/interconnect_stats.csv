@@ -1,0 +1,7 @@
+executed_at,trace_label,trace_path,protocol,sim_time_ns,transacciones_totales,lecturas,escrituras,invalidaciones,updates,downgrades_m_to_s,bus_tx_por_ns,log_file
+2026-04-28T08:00:57,propuesta_1_matmul,traces/trace_matmul.txt,MSI,91,44,0,0,39,0,0,0.483516,results/logs/propuesta_1_matmul_msi.log
+2026-04-28T08:00:57,propuesta_1_matmul,traces/trace_matmul.txt,FIREFLY,91,44,0,0,0,114,0,0.483516,results/logs/propuesta_1_matmul_firefly.log
+2026-04-28T08:00:57,propuesta_2_pipeline,traces/trace_pipeline.txt,MSI,46,18,0,0,12,0,6,0.391304,results/logs/propuesta_2_pipeline_msi.log
+2026-04-28T08:00:57,propuesta_2_pipeline,traces/trace_pipeline.txt,FIREFLY,46,14,0,0,0,17,1,0.304348,results/logs/propuesta_2_pipeline_firefly.log
+2026-04-28T08:00:57,extra_migratorio,traces/trace_migratorio.txt,MSI,91,61,0,0,55,0,16,0.670330,results/logs/extra_migratorio_msi.log
+2026-04-28T08:00:57,extra_migratorio,traces/trace_migratorio.txt,FIREFLY,73,36,0,0,0,96,0,0.493151,results/logs/extra_migratorio_firefly.log
