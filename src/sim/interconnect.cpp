@@ -266,6 +266,8 @@ void Interconnect::print_stats() const {
     std::cout << "\n=== ESTADISTICAS INTERCONNECT ("
               << protocol_to_string(protocol) << ") ===" << std::endl;
     std::cout << "Transacciones totales : " << stats.total << std::endl;
+    std::cout << "Lecturas              : " << stats.reads << std::endl;
+    std::cout << "Escrituras            : " << stats.writes << std::endl;
     std::cout << "  BusRead             : " << stats.reads << std::endl;
     std::cout << "  BusReadX            : " << stats.bus_read_x << std::endl;
     std::cout << "  BusUpgrade          : " << stats.bus_upgrades << std::endl;
