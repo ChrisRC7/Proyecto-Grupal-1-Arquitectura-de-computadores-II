@@ -1,5 +1,5 @@
 $date
-     Apr 24, 2026       00:37:24
+     Apr 28, 2026       08:00:57
 $end
 
 $version
@@ -114,29 +114,33 @@ $end
 
 #1000
 1aaaaa
-b101000000000000 aaaai
-b10 aaaaj
-b1 aaaao
-b101000000000000 aaaar
+b111000000000000 aaaai
+b1 aaaaj
+b1 aaaam
+b111000000000000 aaaar
 b1 aaaas
 b1 aaaav
-b101000000000000 aaaba
+b111000000000000 aaaba
 b1 aaabb
 b1 aaabe
+b111000000000000 aaabj
+b1 aaabk
+b1 aaabn
 
 #1500
 0aaaaa
 
 #2000
 1aaaaa
-b101000000000000 aaaab
+b111000000000000 aaaab
 b1 aaaac
-b10 aaaad
-b11 aaaae
+b11 aaaad
+b100 aaaae
 1aaaah
 b1 aaaak
 b1 aaaat
 b1 aaabc
+b1 aaabl
 
 #2500
 0aaaaa
@@ -163,8 +167,10 @@ b1 aaabc
 1aaaaa
 b10 aaaas
 b1 aaaaw
-b101000000010000 aaaba
-b1 aaabd
+b10 aaabb
+b1 aaabf
+b10 aaabk
+b1 aaabo
 
 #6500
 0aaaaa
@@ -173,23 +179,21 @@ b1 aaabd
 1aaaaa
 b10 aaaac
 b1 aaaad
-b100 aaaae
-b10 aaaag
+b111 aaaae
+b1001 aaaag
 
 #7500
 0aaaaa
 
 #8000
 1aaaaa
-b101000000100000 aaaba
-b10 aaabd
 
 #8500
 0aaaaa
 
 #9000
 1aaaaa
-b101000000010000 aaaai
+b10 aaaaj
 b1 aaaan
 
 #9500
@@ -197,12 +201,9 @@ b1 aaaan
 
 #10000
 1aaaaa
-b101000000010000 aaaab
 b0 aaaad
-b101 aaaae
-b100 aaaag
-b101000000110000 aaaba
-b11 aaabd
+b1000 aaaae
+b1100 aaaag
 
 #10500
 0aaaaa
@@ -215,22 +216,18 @@ b11 aaabd
 
 #12000
 1aaaaa
-b101000001000000 aaaba
-b10 aaabe
 
 #12500
 0aaaaa
 
 #13000
 1aaaaa
-b101000001000000 aaaab
-b1 aaaac
-b10 aaaad
-b110 aaaae
-0aaaah
-b101000000010000 aaaar
 b1 aaaas
 b1 aaaau
+b1 aaabb
+b1 aaabd
+b1 aaabk
+b1 aaabm
 
 #13500
 0aaaaa
@@ -245,42 +242,44 @@ b1 aaaau
 1aaaaa
 b10 aaaas
 b10 aaaaw
+b10 aaabb
+b10 aaabf
+b10 aaabk
+b10 aaabo
 
 #15500
 0aaaaa
 
 #16000
 1aaaaa
-b101000000010000 aaaab
-b10 aaaac
-b1 aaaad
-b111 aaaae
-b110 aaaag
-1aaaah
-b101000000100000 aaaai
-b10 aaaan
+b11 aaaad
+b1011 aaaae
+b10101 aaaag
+b1 aaaaj
+b1 aaaal
 
 #16500
 0aaaaa
 
 #17000
 1aaaaa
-b101000000100000 aaaab
-b0 aaaad
-b1000 aaaae
-b1000 aaaag
 
 #17500
 0aaaaa
 
 #18000
 1aaaaa
+b10 aaaaj
+b10 aaaan
 
 #18500
 0aaaaa
 
 #19000
 1aaaaa
+b0 aaaad
+b1100 aaaae
+b11000 aaaag
 
 #19500
 0aaaaa
@@ -299,38 +298,41 @@ b1000 aaaag
 
 #22000
 1aaaaa
-b101000000100000 aaaar
 b1 aaaas
 b10 aaaau
+b1 aaabb
+b10 aaabd
+b1 aaabk
+b10 aaabm
 
 #22500
 0aaaaa
 
 #23000
 1aaaaa
-b101000000110000 aaaai
-b11 aaaan
 
 #23500
 0aaaaa
 
 #24000
 1aaaaa
-b101000000110000 aaaab
-b1001 aaaae
-b1010 aaaag
 b10 aaaas
 b11 aaaaw
+b10 aaabb
+b11 aaabf
+b10 aaabk
+b11 aaabo
 
 #24500
 0aaaaa
 
 #25000
 1aaaaa
-b101000000100000 aaaab
-b1 aaaad
-b1010 aaaae
-b1100 aaaag
+b10 aaaad
+b1111 aaaae
+b100001 aaaag
+b1 aaaaj
+b10 aaaal
 
 #25500
 0aaaaa
@@ -343,12 +345,17 @@ b1100 aaaag
 
 #27000
 1aaaaa
+b10 aaaaj
+b11 aaaan
 
 #27500
 0aaaaa
 
 #28000
 1aaaaa
+b0 aaaad
+b10000 aaaae
+b100100 aaaag
 
 #28500
 0aaaaa
@@ -361,21 +368,18 @@ b1100 aaaag
 
 #30000
 1aaaaa
-b101000001000000 aaaai
-b10 aaaao
 
 #30500
 0aaaaa
 
 #31000
 1aaaaa
-b101000001000000 aaaab
-b0 aaaad
-b1011 aaaae
-b1101 aaaag
-b101000000110000 aaaar
 b1 aaaas
 b11 aaaau
+b1 aaabb
+b11 aaabd
+b1 aaabk
+b11 aaabm
 
 #31500
 0aaaaa
@@ -390,16 +394,21 @@ b11 aaaau
 1aaaaa
 b10 aaaas
 b100 aaaaw
+b10 aaabb
+b100 aaabf
+b10 aaabk
+b100 aaabo
 
 #33500
 0aaaaa
 
 #34000
 1aaaaa
-b101000000110000 aaaab
 b1 aaaad
-b1100 aaaae
-b1111 aaaag
+b10011 aaaae
+b101101 aaaag
+b1 aaaaj
+b11 aaaal
 
 #34500
 0aaaaa
@@ -412,12 +421,17 @@ b1111 aaaag
 
 #36000
 1aaaaa
+b10 aaaaj
+b100 aaaan
 
 #36500
 0aaaaa
 
 #37000
 1aaaaa
+b0 aaaad
+b10100 aaaae
+b110000 aaaag
 
 #37500
 0aaaaa
@@ -436,30 +450,41 @@ b1111 aaaag
 
 #40000
 1aaaaa
-b101000001000000 aaaar
 b1 aaaas
-b10 aaaav
+b100 aaaau
+b1 aaabb
+b100 aaabd
+b1 aaabk
+b100 aaabm
 
 #40500
 0aaaaa
 
 #41000
 1aaaaa
-b101000001000000 aaaab
-b1 aaaac
-b1101 aaaae
 
 #41500
 0aaaaa
 
 #42000
 1aaaaa
+b10 aaaas
+b101 aaaaw
+b10 aaabb
+b101 aaabf
+b10 aaabk
+b101 aaabo
 
 #42500
 0aaaaa
 
 #43000
 1aaaaa
+b11 aaaad
+b10111 aaaae
+b111001 aaaag
+b1 aaaaj
+b100 aaaal
 
 #43500
 0aaaaa
@@ -472,17 +497,17 @@ b1101 aaaae
 
 #45000
 1aaaaa
-b10 aaaas
-b101 aaaaw
+b10 aaaaj
+b101 aaaan
 
 #45500
 0aaaaa
 
 #46000
 1aaaaa
-b10 aaaac
-b1110 aaaae
-b10001 aaaag
+b0 aaaad
+b11000 aaaae
+b111100 aaaag
 
 #46500
 0aaaaa
@@ -501,6 +526,12 @@ b10001 aaaag
 
 #49000
 1aaaaa
+b1 aaaas
+b101 aaaau
+b1 aaabb
+b101 aaabd
+b1 aaabk
+b101 aaabm
 
 #49500
 0aaaaa
@@ -513,12 +544,23 @@ b10001 aaaag
 
 #51000
 1aaaaa
+b10 aaaas
+b110 aaaaw
+b10 aaabb
+b110 aaabf
+b10 aaabk
+b110 aaabo
 
 #51500
 0aaaaa
 
 #52000
 1aaaaa
+b10 aaaad
+b11011 aaaae
+b1000101 aaaag
+b1 aaaaj
+b101 aaaal
 
 #52500
 0aaaaa
@@ -531,12 +573,17 @@ b10001 aaaag
 
 #54000
 1aaaaa
+b10 aaaaj
+b110 aaaan
 
 #54500
 0aaaaa
 
 #55000
 1aaaaa
+b0 aaaad
+b11100 aaaae
+b1001000 aaaag
 
 #55500
 0aaaaa
@@ -555,6 +602,12 @@ b10001 aaaag
 
 #58000
 1aaaaa
+b1 aaaas
+b110 aaaau
+b1 aaabb
+b110 aaabd
+b1 aaabk
+b110 aaabm
 
 #58500
 0aaaaa
@@ -567,12 +620,23 @@ b10001 aaaag
 
 #60000
 1aaaaa
+b10 aaaas
+b111 aaaaw
+b10 aaabb
+b111 aaabf
+b10 aaabk
+b111 aaabo
 
 #60500
 0aaaaa
 
 #61000
 1aaaaa
+b1 aaaad
+b11111 aaaae
+b1010001 aaaag
+b1 aaaaj
+b110 aaaal
 
 #61500
 0aaaaa
@@ -585,12 +649,17 @@ b10001 aaaag
 
 #63000
 1aaaaa
+b10 aaaaj
+b111 aaaan
 
 #63500
 0aaaaa
 
 #64000
 1aaaaa
+b0 aaaad
+b100000 aaaae
+b1010100 aaaag
 
 #64500
 0aaaaa
@@ -609,6 +678,12 @@ b10001 aaaag
 
 #67000
 1aaaaa
+b1 aaaas
+b111 aaaau
+b1 aaabb
+b111 aaabd
+b1 aaabk
+b111 aaabm
 
 #67500
 0aaaaa
@@ -621,12 +696,23 @@ b10001 aaaag
 
 #69000
 1aaaaa
+b10 aaaas
+b1000 aaaaw
+b10 aaabb
+b1000 aaabf
+b10 aaabk
+b1000 aaabo
 
 #69500
 0aaaaa
 
 #70000
 1aaaaa
+b11 aaaad
+b100011 aaaae
+b1011101 aaaag
+b1 aaaaj
+b111 aaaal
 
 #70500
 0aaaaa
@@ -639,12 +725,17 @@ b10001 aaaag
 
 #72000
 1aaaaa
+b10 aaaaj
+b1000 aaaan
 
 #72500
 0aaaaa
 
 #73000
 1aaaaa
+b0 aaaad
+b100100 aaaae
+b1100000 aaaag
 
 #73500
 0aaaaa

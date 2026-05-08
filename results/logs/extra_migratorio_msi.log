@@ -1,0 +1,218 @@
+--- Iniciando Simulacion HW con 4 PEs ---
+Trace: traces/trace_migratorio.txt
+Protocolo: MSI
+L1 config: size=1024B, block=64B, ways=2, replacement=LRU, l1_hit=1ns, l1_miss=1ns
+Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
+
+Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
+@2 ns | Bus: BusRead de PE0 en 0x7000
+@2 ns | L1_0 : 0x7000 I -> S (BusRead: datos de memoria)
+@2 ns | Bus: BusRead de PE1 en 0x7000
+@2 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@2 ns | Bus: BusRead de PE2 en 0x7000
+@2 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@2 ns | Bus: BusRead de PE3 en 0x7000
+@2 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@7 ns | Bus: BusUpgrade de PE3 en 0x7000
+@7 ns | L1_0 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@7 ns | L1_1 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@7 ns | L1_2 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@7 ns | L1_3 : 0x7000 S -> M (BusUpgrade: propietario exclusivo)
+@7 ns | Bus: BusReadX de PE2 en 0x7000
+@7 ns | L1_3 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@7 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@7 ns | Bus: BusReadX de PE1 en 0x7000
+@7 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@7 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@10 ns | Bus: BusReadX de PE0 en 0x7000
+@10 ns | L1_1 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@10 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@12 ns | Bus: BusRead de PE3 en 0x7000
+@12 ns | L1_0 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@12 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusRead de PE1 en 0x7000
+@14 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusRead de PE2 en 0x7000
+@14 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@17 ns | Bus: BusUpgrade de PE3 en 0x7000
+@17 ns | L1_0 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@17 ns | L1_1 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@17 ns | L1_2 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@17 ns | L1_3 : 0x7000 S -> M (BusUpgrade: propietario exclusivo)
+@19 ns | Bus: BusReadX de PE0 en 0x7000
+@19 ns | L1_3 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@19 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@19 ns | Bus: BusReadX de PE1 en 0x7000
+@19 ns | L1_0 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@19 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@19 ns | Bus: BusReadX de PE2 en 0x7000
+@19 ns | L1_1 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@19 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@22 ns | Bus: BusRead de PE3 en 0x7000
+@22 ns | L1_2 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@22 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@26 ns | Bus: BusRead de PE1 en 0x7000
+@26 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@26 ns | Bus: BusRead de PE0 en 0x7000
+@26 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@27 ns | Bus: BusUpgrade de PE3 en 0x7000
+@27 ns | L1_0 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@27 ns | L1_1 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@27 ns | L1_2 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@27 ns | L1_3 : 0x7000 S -> M (BusUpgrade: propietario exclusivo)
+@28 ns | Bus: BusReadX de PE2 en 0x7000
+@28 ns | L1_3 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@28 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@31 ns | Bus: BusReadX de PE0 en 0x7000
+@31 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@31 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@31 ns | Bus: BusReadX de PE1 en 0x7000
+@31 ns | L1_0 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@31 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@32 ns | Bus: BusRead de PE3 en 0x7000
+@32 ns | L1_1 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@32 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@35 ns | Bus: BusRead de PE2 en 0x7000
+@35 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@37 ns | Bus: BusUpgrade de PE3 en 0x7000
+@37 ns | L1_1 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@37 ns | L1_2 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@37 ns | L1_3 : 0x7000 S -> M (BusUpgrade: propietario exclusivo)
+@38 ns | Bus: BusRead de PE0 en 0x7000
+@38 ns | L1_3 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@38 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@40 ns | Bus: BusReadX de PE2 en 0x7000
+@40 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@40 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@40 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@40 ns | Bus: BusReadX de PE1 en 0x7000
+@40 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@40 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@42 ns | Bus: BusRead de PE3 en 0x7000
+@42 ns | L1_1 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@42 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@43 ns | Bus: BusReadX de PE0 en 0x7000
+@43 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@43 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@43 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@47 ns | Bus: BusRead de PE1 en 0x7000
+@47 ns | L1_0 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@47 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@47 ns | Bus: BusReadX de PE3 en 0x7000
+@47 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@47 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@47 ns | L1_3 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@47 ns | Bus: BusRead de PE2 en 0x7000
+@47 ns | L1_3 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@47 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@50 ns | Bus: BusRead de PE0 en 0x7000
+@50 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@52 ns | Bus: BusUpgrade de PE2 en 0x7000
+@52 ns | L1_0 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@52 ns | L1_3 : 0x7000 S -> I (BusUpgrade: invalidacion remota)
+@52 ns | L1_2 : 0x7000 S -> M (BusUpgrade: propietario exclusivo)
+@52 ns | Bus: BusReadX de PE1 en 0x7000
+@52 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@52 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@54 ns | Bus: BusRead de PE3 en 0x7000
+@54 ns | L1_1 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@54 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@55 ns | Bus: BusReadX de PE0 en 0x7000
+@55 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@55 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@55 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@57 ns | Bus: BusRead de PE2 en 0x7000
+@57 ns | L1_0 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@57 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@59 ns | Bus: BusReadX de PE3 en 0x7000
+@59 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@59 ns | L1_2 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@59 ns | L1_3 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@59 ns | Bus: BusRead de PE1 en 0x7000
+@59 ns | L1_3 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@59 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@62 ns | Bus: BusRead de PE0 en 0x7000
+@62 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@62 ns | Bus: BusReadX de PE2 en 0x7000
+@62 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@62 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@62 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@62 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@64 ns | Bus: BusReadX de PE1 en 0x7000
+@64 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@64 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@66 ns | Bus: BusRead de PE3 en 0x7000
+@66 ns | L1_1 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@66 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@67 ns | Bus: BusReadX de PE0 en 0x7000
+@67 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@67 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@67 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@69 ns | Bus: BusRead de PE2 en 0x7000
+@69 ns | L1_0 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@69 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@71 ns | Bus: BusReadX de PE3 en 0x7000
+@71 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@71 ns | L1_2 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@71 ns | L1_3 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@71 ns | Bus: BusRead de PE1 en 0x7000
+@71 ns | L1_3 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@71 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@74 ns | Bus: BusRead de PE0 en 0x7000
+@74 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@74 ns | Bus: BusReadX de PE2 en 0x7000
+@74 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@74 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@74 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@74 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@76 ns | Bus: BusReadX de PE1 en 0x7000
+@76 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@76 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@78 ns | Bus: BusRead de PE3 en 0x7000
+@78 ns | L1_1 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@78 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@79 ns | Bus: BusReadX de PE0 en 0x7000
+@79 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@79 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@79 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@81 ns | Bus: BusRead de PE2 en 0x7000
+@81 ns | L1_0 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@81 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@83 ns | Bus: BusReadX de PE3 en 0x7000
+@83 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@83 ns | L1_2 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@83 ns | L1_3 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@83 ns | Bus: BusRead de PE1 en 0x7000
+@83 ns | L1_3 : 0x7000 M -> S (BusRead remoto: downgrade M->S)
+@83 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@86 ns | Bus: BusRead de PE0 en 0x7000
+@86 ns | L1_0 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@86 ns | Bus: BusReadX de PE2 en 0x7000
+@86 ns | L1_0 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@86 ns | L1_1 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@86 ns | L1_3 : 0x7000 S -> I (BusReadX: invalidacion remota)
+@86 ns | L1_2 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@88 ns | Bus: BusReadX de PE1 en 0x7000
+@88 ns | L1_2 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@88 ns | L1_1 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+@91 ns | Bus: BusReadX de PE0 en 0x7000
+@91 ns | L1_1 : 0x7000 M -> I (BusReadX: invalidacion remota)
+@91 ns | L1_0 : 0x7000 I -> M (BusReadX: propietario exclusivo)
+Waveform VCD: results/waveforms/sim_wave.vcd
+--- Simulacion Finalizada ---
+
+=== ESTADISTICAS INTERCONNECT (MSI) ===
+Transacciones totales : 61
+  BusRead             : 29
+  BusReadX            : 27
+  BusUpgrade          : 5
+  BusUpdate           : 0
+  Invalidaciones      : 55
+  Updates             : 0
+  Downgrades M->S     : 16
+
+=== ESTADISTICAS L1 ===
+L1_0 | RH=1 RM=7 WH=0 WM=8 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_1 | RH=1 RM=7 WH=1 WM=7 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_2 | RH=1 RM=7 WH=2 WM=6 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_3 | RH=0 RM=8 WH=4 WM=4 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)

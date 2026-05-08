@@ -271,6 +271,6 @@ void Interconnect::print_stats() const {
     std::cout << "  BusUpgrade          : " << stats.bus_upgrades << std::endl;
     std::cout << "  BusUpdate           : " << stats.bus_updates << std::endl;
     std::cout << "  Invalidaciones      : " << stats.invalidations << std::endl;
-    std::cout << "  Updates (Firefly)   : " << stats.updates << std::endl;
+    std::cout << "  Updates             : " << stats.updates << std::endl;
     std::cout << "  Downgrades M->S     : " << stats.downgrades_m_to_s << std::endl;
 }

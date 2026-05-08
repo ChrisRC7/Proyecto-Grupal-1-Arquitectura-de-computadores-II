@@ -69,6 +69,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Incluye tambien la traza extra migratoria (por defecto solo propuestas oficiales)",
     )
+    parser.add_argument(
+        "--summary-file",
+        default="results/resumen_experimentos.md",
+        help="Archivo Markdown con un resumen agregado del lote",
+    )
     return parser.parse_args()
 
 
@@ -119,7 +124,7 @@ def parse_output(output: str, run: RunConfig) -> ParsedRun:
             else:
                 kv_match = INTERCONNECT_VALUE_RE.match(line)
                 if kv_match:
-                    key = kv_match.group(1).lower().replace(" ", "_").replace("->", "_to_")
+                    key = kv_match.group(1).strip().lower().replace(" ", "_").replace("->", "_to_")
                     interconnect[key] = int(kv_match.group(2))
 
         l1_match = L1_RE.match(line)
@@ -157,6 +162,39 @@ def write_csv(path: Path, rows: List[Dict[str, object]], fieldnames: List[str]) 
         writer = csv.DictWriter(fp, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def write_summary(path: Path, rows: List[Dict[str, object]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    lines = [
+        "# Resumen de experimentos reproducibles",
+        "",
+        "Este resumen se genera a partir de `results/interconnect_stats.csv` y `results/l1_stats.csv`.",
+        "",
+        "| Propuesta | Protocolo | Tx bus | Invalidaciones | Updates | Downgrades M->S | Tiempo sim (ns) |",
+        "|---|---|---:|---:|---:|---:|---:|",
+    ]
+
+    for row in rows:
+        lines.append(
+            f"| {row['trace_label']} | {row['protocol']} | {row['transacciones_totales']} | "
+            f"{row['invalidaciones']} | {row['updates']} | {row['downgrades_m_to_s']} | {row['sim_time_ns']} |"
+        )
+
+    lines.extend([
+        "",
+        "## Conjunto formal de transacciones de bus",
+        "",
+        "- `BusRead`: un PE lee un bloque que no tiene localmente; el bloque puede compartirse en estado `S`.",
+        "- `BusReadX`: un PE solicita el bloque para escribir sin copia previa; invalida copias remotas y obtiene exclusividad.",
+        "- `BusUpgrade`: un PE ya tiene el bloque en `S` y quiere escribir; solo invalida a los demas para pasar a `M`.",
+        "- `BusUpdate`: politica Firefly; una escritura propaga el nuevo valor a todas las copias remotas.",
+        "- `BusInvalidate`: transaccion interna para invalidaciones remotas cuando corresponde al protocolo MSI.",
+        "",
+    ])
+
+    path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> int:
@@ -282,9 +320,24 @@ def main() -> int:
         ],
     )
 
+    summary_rows = [
+        {
+            "trace_label": row["trace_label"],
+            "protocol": row["protocol"],
+            "transacciones_totales": row["transacciones_totales"],
+            "invalidaciones": row["invalidaciones"],
+            "updates": row["updates"],
+            "downgrades_m_to_s": row["downgrades_m_to_s"],
+            "sim_time_ns": row["sim_time_ns"],
+        }
+        for row in interconnect_rows
+    ]
+    write_summary(Path(args.summary_file), summary_rows)
+
     print(f"[OK] CSV generado: {output_dir / 'interconnect_stats.csv'}")
     print(f"[OK] CSV generado: {output_dir / 'l1_stats.csv'}")
     print(f"[OK] Bitacoras: {logs_dir}")
+    print(f"[OK] Resumen: {Path(args.summary_file)}")
     return 0
 
 
