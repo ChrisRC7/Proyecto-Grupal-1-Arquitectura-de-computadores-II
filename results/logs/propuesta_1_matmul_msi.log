@@ -137,6 +137,8 @@ Waveform VCD: results/waveforms/sim_wave.vcd
 
 === ESTADISTICAS INTERCONNECT (MSI) ===
 Transacciones totales : 44
+Lecturas              : 4
+Escrituras            : 40
   BusRead             : 4
   BusReadX            : 40
   BusUpgrade          : 0

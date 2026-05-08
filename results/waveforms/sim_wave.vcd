@@ -1,5 +1,5 @@
 $date
-     Apr 28, 2026       08:00:57
+     May 07, 2026       21:31:53
 $end
 
 $version
@@ -14,47 +14,48 @@ $scope module SystemC $end
 $var wire    1  aaaaa  clk       $end
 $var wire   64  aaaab  bus_last_addr [63:0]  $end
 $var wire    2  aaaac  bus_last_op [1:0]  $end
-$var wire    3  aaaad  bus_requester_id [2:0]  $end
-$var wire   64  aaaae  bus_total_tx [63:0]  $end
-$var wire   64  aaaaf  bus_invalidations [63:0]  $end
-$var wire   64  aaaag  bus_updates [63:0]  $end
-$var wire    1  aaaah  bus_shared_access       $end
-$var wire   64  aaaai  l1_0_last_addr [63:0]  $end
-$var wire    2  aaaaj  l1_0_last_op [1:0]  $end
-$var wire    2  aaaak  l1_0_last_state [1:0]  $end
-$var wire   64  aaaal  l1_0_read_hits [63:0]  $end
-$var wire   64  aaaam  l1_0_read_misses [63:0]  $end
-$var wire   64  aaaan  l1_0_write_hits [63:0]  $end
-$var wire   64  aaaao  l1_0_write_misses [63:0]  $end
-$var wire   64  aaaap  l1_0_evictions [63:0]  $end
-$var wire   64  aaaaq  l1_0_conflict_misses [63:0]  $end
-$var wire   64  aaaar  l1_1_last_addr [63:0]  $end
-$var wire    2  aaaas  l1_1_last_op [1:0]  $end
-$var wire    2  aaaat  l1_1_last_state [1:0]  $end
-$var wire   64  aaaau  l1_1_read_hits [63:0]  $end
-$var wire   64  aaaav  l1_1_read_misses [63:0]  $end
-$var wire   64  aaaaw  l1_1_write_hits [63:0]  $end
-$var wire   64  aaaax  l1_1_write_misses [63:0]  $end
-$var wire   64  aaaay  l1_1_evictions [63:0]  $end
-$var wire   64  aaaaz  l1_1_conflict_misses [63:0]  $end
-$var wire   64  aaaba  l1_2_last_addr [63:0]  $end
-$var wire    2  aaabb  l1_2_last_op [1:0]  $end
-$var wire    2  aaabc  l1_2_last_state [1:0]  $end
-$var wire   64  aaabd  l1_2_read_hits [63:0]  $end
-$var wire   64  aaabe  l1_2_read_misses [63:0]  $end
-$var wire   64  aaabf  l1_2_write_hits [63:0]  $end
-$var wire   64  aaabg  l1_2_write_misses [63:0]  $end
-$var wire   64  aaabh  l1_2_evictions [63:0]  $end
-$var wire   64  aaabi  l1_2_conflict_misses [63:0]  $end
-$var wire   64  aaabj  l1_3_last_addr [63:0]  $end
-$var wire    2  aaabk  l1_3_last_op [1:0]  $end
-$var wire    2  aaabl  l1_3_last_state [1:0]  $end
-$var wire   64  aaabm  l1_3_read_hits [63:0]  $end
-$var wire   64  aaabn  l1_3_read_misses [63:0]  $end
-$var wire   64  aaabo  l1_3_write_hits [63:0]  $end
-$var wire   64  aaabp  l1_3_write_misses [63:0]  $end
-$var wire   64  aaabq  l1_3_evictions [63:0]  $end
-$var wire   64  aaabr  l1_3_conflict_misses [63:0]  $end
+$var wire    3  aaaad  bus_last_tx_type [2:0]  $end
+$var wire    3  aaaae  bus_requester_id [2:0]  $end
+$var wire   64  aaaaf  bus_total_tx [63:0]  $end
+$var wire   64  aaaag  bus_invalidations [63:0]  $end
+$var wire   64  aaaah  bus_updates [63:0]  $end
+$var wire    1  aaaai  bus_shared_access       $end
+$var wire   64  aaaaj  l1_0_last_addr [63:0]  $end
+$var wire    2  aaaak  l1_0_last_op [1:0]  $end
+$var wire    2  aaaal  l1_0_last_state [1:0]  $end
+$var wire   64  aaaam  l1_0_read_hits [63:0]  $end
+$var wire   64  aaaan  l1_0_read_misses [63:0]  $end
+$var wire   64  aaaao  l1_0_write_hits [63:0]  $end
+$var wire   64  aaaap  l1_0_write_misses [63:0]  $end
+$var wire   64  aaaaq  l1_0_evictions [63:0]  $end
+$var wire   64  aaaar  l1_0_conflict_misses [63:0]  $end
+$var wire   64  aaaas  l1_1_last_addr [63:0]  $end
+$var wire    2  aaaat  l1_1_last_op [1:0]  $end
+$var wire    2  aaaau  l1_1_last_state [1:0]  $end
+$var wire   64  aaaav  l1_1_read_hits [63:0]  $end
+$var wire   64  aaaaw  l1_1_read_misses [63:0]  $end
+$var wire   64  aaaax  l1_1_write_hits [63:0]  $end
+$var wire   64  aaaay  l1_1_write_misses [63:0]  $end
+$var wire   64  aaaaz  l1_1_evictions [63:0]  $end
+$var wire   64  aaaba  l1_1_conflict_misses [63:0]  $end
+$var wire   64  aaabb  l1_2_last_addr [63:0]  $end
+$var wire    2  aaabc  l1_2_last_op [1:0]  $end
+$var wire    2  aaabd  l1_2_last_state [1:0]  $end
+$var wire   64  aaabe  l1_2_read_hits [63:0]  $end
+$var wire   64  aaabf  l1_2_read_misses [63:0]  $end
+$var wire   64  aaabg  l1_2_write_hits [63:0]  $end
+$var wire   64  aaabh  l1_2_write_misses [63:0]  $end
+$var wire   64  aaabi  l1_2_evictions [63:0]  $end
+$var wire   64  aaabj  l1_2_conflict_misses [63:0]  $end
+$var wire   64  aaabk  l1_3_last_addr [63:0]  $end
+$var wire    2  aaabl  l1_3_last_op [1:0]  $end
+$var wire    2  aaabm  l1_3_last_state [1:0]  $end
+$var wire   64  aaabn  l1_3_read_hits [63:0]  $end
+$var wire   64  aaabo  l1_3_read_misses [63:0]  $end
+$var wire   64  aaabp  l1_3_write_hits [63:0]  $end
+$var wire   64  aaabq  l1_3_write_misses [63:0]  $end
+$var wire   64  aaabr  l1_3_evictions [63:0]  $end
+$var wire   64  aaabs  l1_3_conflict_misses [63:0]  $end
 $upscope $end
 $enddefinitions  $end
 
@@ -70,8 +71,8 @@ b0 aaaad
 b0 aaaae
 b0 aaaaf
 b0 aaaag
-0aaaah
-b0 aaaai
+b0 aaaah
+0aaaai
 b0 aaaaj
 b0 aaaak
 b0 aaaal
@@ -107,6 +108,7 @@ b0 aaabo
 b0 aaabp
 b0 aaabq
 b0 aaabr
+b0 aaabs
 $end
 
 #500
@@ -114,18 +116,18 @@ $end
 
 #1000
 1aaaaa
-b111000000000000 aaaai
-b1 aaaaj
-b1 aaaam
-b111000000000000 aaaar
-b1 aaaas
-b1 aaaav
-b111000000000000 aaaba
-b1 aaabb
-b1 aaabe
-b111000000000000 aaabj
-b1 aaabk
-b1 aaabn
+b111000000000000 aaaaj
+b1 aaaak
+b1 aaaan
+b111000000000000 aaaas
+b1 aaaat
+b1 aaaaw
+b111000000000000 aaabb
+b1 aaabc
+b1 aaabf
+b111000000000000 aaabk
+b1 aaabl
+b1 aaabo
 
 #1500
 0aaaaa
@@ -134,13 +136,14 @@ b1 aaabn
 1aaaaa
 b111000000000000 aaaab
 b1 aaaac
-b11 aaaad
-b100 aaaae
-1aaaah
-b1 aaaak
-b1 aaaat
-b1 aaabc
-b1 aaabl
+b1 aaaad
+b11 aaaae
+b100 aaaaf
+1aaaai
+b1 aaaal
+b1 aaaau
+b1 aaabd
+b1 aaabm
 
 #2500
 0aaaaa
@@ -165,12 +168,12 @@ b1 aaabl
 
 #6000
 1aaaaa
-b10 aaaas
-b1 aaaaw
-b10 aaabb
-b1 aaabf
-b10 aaabk
-b1 aaabo
+b10 aaaat
+b1 aaaax
+b10 aaabc
+b1 aaabg
+b10 aaabl
+b1 aaabp
 
 #6500
 0aaaaa
@@ -178,9 +181,10 @@ b1 aaabo
 #7000
 1aaaaa
 b10 aaaac
-b1 aaaad
-b111 aaaae
-b1001 aaaag
+b100 aaaad
+b1 aaaae
+b111 aaaaf
+b1001 aaaah
 
 #7500
 0aaaaa
@@ -193,17 +197,17 @@ b1001 aaaag
 
 #9000
 1aaaaa
-b10 aaaaj
-b1 aaaan
+b10 aaaak
+b1 aaaao
 
 #9500
 0aaaaa
 
 #10000
 1aaaaa
-b0 aaaad
-b1000 aaaae
-b1100 aaaag
+b0 aaaae
+b1000 aaaaf
+b1100 aaaah
 
 #10500
 0aaaaa
@@ -222,12 +226,12 @@ b1100 aaaag
 
 #13000
 1aaaaa
-b1 aaaas
-b1 aaaau
-b1 aaabb
-b1 aaabd
-b1 aaabk
-b1 aaabm
+b1 aaaat
+b1 aaaav
+b1 aaabc
+b1 aaabe
+b1 aaabl
+b1 aaabn
 
 #13500
 0aaaaa
@@ -240,23 +244,23 @@ b1 aaabm
 
 #15000
 1aaaaa
-b10 aaaas
-b10 aaaaw
-b10 aaabb
-b10 aaabf
-b10 aaabk
-b10 aaabo
+b10 aaaat
+b10 aaaax
+b10 aaabc
+b10 aaabg
+b10 aaabl
+b10 aaabp
 
 #15500
 0aaaaa
 
 #16000
 1aaaaa
-b11 aaaad
-b1011 aaaae
-b10101 aaaag
-b1 aaaaj
-b1 aaaal
+b11 aaaae
+b1011 aaaaf
+b10101 aaaah
+b1 aaaak
+b1 aaaam
 
 #16500
 0aaaaa
@@ -269,17 +273,17 @@ b1 aaaal
 
 #18000
 1aaaaa
-b10 aaaaj
-b10 aaaan
+b10 aaaak
+b10 aaaao
 
 #18500
 0aaaaa
 
 #19000
 1aaaaa
-b0 aaaad
-b1100 aaaae
-b11000 aaaag
+b0 aaaae
+b1100 aaaaf
+b11000 aaaah
 
 #19500
 0aaaaa
@@ -298,12 +302,12 @@ b11000 aaaag
 
 #22000
 1aaaaa
-b1 aaaas
-b10 aaaau
-b1 aaabb
-b10 aaabd
-b1 aaabk
-b10 aaabm
+b1 aaaat
+b10 aaaav
+b1 aaabc
+b10 aaabe
+b1 aaabl
+b10 aaabn
 
 #22500
 0aaaaa
@@ -316,23 +320,23 @@ b10 aaabm
 
 #24000
 1aaaaa
-b10 aaaas
-b11 aaaaw
-b10 aaabb
-b11 aaabf
-b10 aaabk
-b11 aaabo
+b10 aaaat
+b11 aaaax
+b10 aaabc
+b11 aaabg
+b10 aaabl
+b11 aaabp
 
 #24500
 0aaaaa
 
 #25000
 1aaaaa
-b10 aaaad
-b1111 aaaae
-b100001 aaaag
-b1 aaaaj
-b10 aaaal
+b10 aaaae
+b1111 aaaaf
+b100001 aaaah
+b1 aaaak
+b10 aaaam
 
 #25500
 0aaaaa
@@ -345,17 +349,17 @@ b10 aaaal
 
 #27000
 1aaaaa
-b10 aaaaj
-b11 aaaan
+b10 aaaak
+b11 aaaao
 
 #27500
 0aaaaa
 
 #28000
 1aaaaa
-b0 aaaad
-b10000 aaaae
-b100100 aaaag
+b0 aaaae
+b10000 aaaaf
+b100100 aaaah
 
 #28500
 0aaaaa
@@ -374,12 +378,12 @@ b100100 aaaag
 
 #31000
 1aaaaa
-b1 aaaas
-b11 aaaau
-b1 aaabb
-b11 aaabd
-b1 aaabk
-b11 aaabm
+b1 aaaat
+b11 aaaav
+b1 aaabc
+b11 aaabe
+b1 aaabl
+b11 aaabn
 
 #31500
 0aaaaa
@@ -392,23 +396,23 @@ b11 aaabm
 
 #33000
 1aaaaa
-b10 aaaas
-b100 aaaaw
-b10 aaabb
-b100 aaabf
-b10 aaabk
-b100 aaabo
+b10 aaaat
+b100 aaaax
+b10 aaabc
+b100 aaabg
+b10 aaabl
+b100 aaabp
 
 #33500
 0aaaaa
 
 #34000
 1aaaaa
-b1 aaaad
-b10011 aaaae
-b101101 aaaag
-b1 aaaaj
-b11 aaaal
+b1 aaaae
+b10011 aaaaf
+b101101 aaaah
+b1 aaaak
+b11 aaaam
 
 #34500
 0aaaaa
@@ -421,17 +425,17 @@ b11 aaaal
 
 #36000
 1aaaaa
-b10 aaaaj
-b100 aaaan
+b10 aaaak
+b100 aaaao
 
 #36500
 0aaaaa
 
 #37000
 1aaaaa
-b0 aaaad
-b10100 aaaae
-b110000 aaaag
+b0 aaaae
+b10100 aaaaf
+b110000 aaaah
 
 #37500
 0aaaaa
@@ -450,12 +454,12 @@ b110000 aaaag
 
 #40000
 1aaaaa
-b1 aaaas
-b100 aaaau
-b1 aaabb
-b100 aaabd
-b1 aaabk
-b100 aaabm
+b1 aaaat
+b100 aaaav
+b1 aaabc
+b100 aaabe
+b1 aaabl
+b100 aaabn
 
 #40500
 0aaaaa
@@ -468,23 +472,23 @@ b100 aaabm
 
 #42000
 1aaaaa
-b10 aaaas
-b101 aaaaw
-b10 aaabb
-b101 aaabf
-b10 aaabk
-b101 aaabo
+b10 aaaat
+b101 aaaax
+b10 aaabc
+b101 aaabg
+b10 aaabl
+b101 aaabp
 
 #42500
 0aaaaa
 
 #43000
 1aaaaa
-b11 aaaad
-b10111 aaaae
-b111001 aaaag
-b1 aaaaj
-b100 aaaal
+b11 aaaae
+b10111 aaaaf
+b111001 aaaah
+b1 aaaak
+b100 aaaam
 
 #43500
 0aaaaa
@@ -497,17 +501,17 @@ b100 aaaal
 
 #45000
 1aaaaa
-b10 aaaaj
-b101 aaaan
+b10 aaaak
+b101 aaaao
 
 #45500
 0aaaaa
 
 #46000
 1aaaaa
-b0 aaaad
-b11000 aaaae
-b111100 aaaag
+b0 aaaae
+b11000 aaaaf
+b111100 aaaah
 
 #46500
 0aaaaa
@@ -526,12 +530,12 @@ b111100 aaaag
 
 #49000
 1aaaaa
-b1 aaaas
-b101 aaaau
-b1 aaabb
-b101 aaabd
-b1 aaabk
-b101 aaabm
+b1 aaaat
+b101 aaaav
+b1 aaabc
+b101 aaabe
+b1 aaabl
+b101 aaabn
 
 #49500
 0aaaaa
@@ -544,23 +548,23 @@ b101 aaabm
 
 #51000
 1aaaaa
-b10 aaaas
-b110 aaaaw
-b10 aaabb
-b110 aaabf
-b10 aaabk
-b110 aaabo
+b10 aaaat
+b110 aaaax
+b10 aaabc
+b110 aaabg
+b10 aaabl
+b110 aaabp
 
 #51500
 0aaaaa
 
 #52000
 1aaaaa
-b10 aaaad
-b11011 aaaae
-b1000101 aaaag
-b1 aaaaj
-b101 aaaal
+b10 aaaae
+b11011 aaaaf
+b1000101 aaaah
+b1 aaaak
+b101 aaaam
 
 #52500
 0aaaaa
@@ -573,17 +577,17 @@ b101 aaaal
 
 #54000
 1aaaaa
-b10 aaaaj
-b110 aaaan
+b10 aaaak
+b110 aaaao
 
 #54500
 0aaaaa
 
 #55000
 1aaaaa
-b0 aaaad
-b11100 aaaae
-b1001000 aaaag
+b0 aaaae
+b11100 aaaaf
+b1001000 aaaah
 
 #55500
 0aaaaa
@@ -602,12 +606,12 @@ b1001000 aaaag
 
 #58000
 1aaaaa
-b1 aaaas
-b110 aaaau
-b1 aaabb
-b110 aaabd
-b1 aaabk
-b110 aaabm
+b1 aaaat
+b110 aaaav
+b1 aaabc
+b110 aaabe
+b1 aaabl
+b110 aaabn
 
 #58500
 0aaaaa
@@ -620,23 +624,23 @@ b110 aaabm
 
 #60000
 1aaaaa
-b10 aaaas
-b111 aaaaw
-b10 aaabb
-b111 aaabf
-b10 aaabk
-b111 aaabo
+b10 aaaat
+b111 aaaax
+b10 aaabc
+b111 aaabg
+b10 aaabl
+b111 aaabp
 
 #60500
 0aaaaa
 
 #61000
 1aaaaa
-b1 aaaad
-b11111 aaaae
-b1010001 aaaag
-b1 aaaaj
-b110 aaaal
+b1 aaaae
+b11111 aaaaf
+b1010001 aaaah
+b1 aaaak
+b110 aaaam
 
 #61500
 0aaaaa
@@ -649,17 +653,17 @@ b110 aaaal
 
 #63000
 1aaaaa
-b10 aaaaj
-b111 aaaan
+b10 aaaak
+b111 aaaao
 
 #63500
 0aaaaa
 
 #64000
 1aaaaa
-b0 aaaad
-b100000 aaaae
-b1010100 aaaag
+b0 aaaae
+b100000 aaaaf
+b1010100 aaaah
 
 #64500
 0aaaaa
@@ -678,12 +682,12 @@ b1010100 aaaag
 
 #67000
 1aaaaa
-b1 aaaas
-b111 aaaau
-b1 aaabb
-b111 aaabd
-b1 aaabk
-b111 aaabm
+b1 aaaat
+b111 aaaav
+b1 aaabc
+b111 aaabe
+b1 aaabl
+b111 aaabn
 
 #67500
 0aaaaa
@@ -696,23 +700,23 @@ b111 aaabm
 
 #69000
 1aaaaa
-b10 aaaas
-b1000 aaaaw
-b10 aaabb
-b1000 aaabf
-b10 aaabk
-b1000 aaabo
+b10 aaaat
+b1000 aaaax
+b10 aaabc
+b1000 aaabg
+b10 aaabl
+b1000 aaabp
 
 #69500
 0aaaaa
 
 #70000
 1aaaaa
-b11 aaaad
-b100011 aaaae
-b1011101 aaaag
-b1 aaaaj
-b111 aaaal
+b11 aaaae
+b100011 aaaaf
+b1011101 aaaah
+b1 aaaak
+b111 aaaam
 
 #70500
 0aaaaa
@@ -725,17 +729,17 @@ b111 aaaal
 
 #72000
 1aaaaa
-b10 aaaaj
-b1000 aaaan
+b10 aaaak
+b1000 aaaao
 
 #72500
 0aaaaa
 
 #73000
 1aaaaa
-b0 aaaad
-b100100 aaaae
-b1100000 aaaag
+b0 aaaae
+b100100 aaaaf
+b1100000 aaaah
 
 #73500
 0aaaaa

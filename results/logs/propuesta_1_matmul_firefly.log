@@ -63,6 +63,8 @@ Waveform VCD: results/waveforms/sim_wave.vcd
 
 === ESTADISTICAS INTERCONNECT (Firefly) ===
 Transacciones totales : 44
+Lecturas              : 4
+Escrituras            : 40
   BusRead             : 4
   BusReadX            : 0
   BusUpgrade          : 0

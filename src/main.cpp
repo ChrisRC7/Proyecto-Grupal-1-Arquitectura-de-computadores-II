@@ -158,6 +158,7 @@ int sc_main(int argc, char* argv[]) {
 
         sc_trace(vcd, bus.wf_last_addr, "bus_last_addr");
         sc_trace(vcd, bus.wf_last_op, "bus_last_op");
+        sc_trace(vcd, bus.wf_last_tx_type, "bus_last_tx_type");
         sc_trace(vcd, bus.wf_requester_id, "bus_requester_id");
         sc_trace(vcd, bus.wf_total_tx, "bus_total_tx");
         sc_trace(vcd, bus.wf_invalidations, "bus_invalidations");
