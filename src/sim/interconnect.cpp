@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "l1_cache.h"
+#include "main_memory.h"
 
 Interconnect::Interconnect(sc_module_name name, Protocol selected_protocol,
                            const TimingConfig& timing_config)
@@ -121,9 +122,14 @@ void Interconnect::do_bus_read(int requester_id, std::uint64_t addr) {
     }
 
     wf_shared_access = shared_copy_exists ? 1 : 0;
-    std::uint64_t latency = timing.bus_latency_ns;
-    latency += shared_copy_exists ? timing.shared_latency_ns : timing.memory_latency_ns;
-    wait(static_cast<double>(latency), SC_NS);
+    wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+    if (shared_copy_exists) {
+        wait(static_cast<double>(timing.shared_latency_ns), SC_NS);
+    } else if (memory != nullptr) {
+        memory->access(addr, false);
+    } else {
+        wait(static_cast<double>(timing.memory_latency_ns), SC_NS);
+    }
 }
 
 // ─────────────────────────────────────────────
@@ -158,9 +164,15 @@ void Interconnect::do_bus_read_x(int requester_id, std::uint64_t addr) {
     }
 
     wf_shared_access = had_copies ? 1 : 0;
-    std::uint64_t latency = timing.bus_latency_ns + timing.coherence_latency_ns;
-    latency += had_copies ? timing.shared_latency_ns : timing.memory_latency_ns;
-    wait(static_cast<double>(latency), SC_NS);
+    wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+    wait(static_cast<double>(timing.coherence_latency_ns), SC_NS);
+    if (had_copies) {
+        wait(static_cast<double>(timing.shared_latency_ns), SC_NS);
+    } else if (memory != nullptr) {
+        memory->access(addr, false);
+    } else {
+        wait(static_cast<double>(timing.memory_latency_ns), SC_NS);
+    }
 }
 
 // ─────────────────────────────────────────────
@@ -194,8 +206,8 @@ void Interconnect::do_bus_upgrade(int requester_id, std::uint64_t addr) {
 
     // Solo costo de coherencia, no hay transferencia de datos
     wf_shared_access = 1;
-    std::uint64_t latency = timing.bus_latency_ns + timing.coherence_latency_ns;
-    wait(static_cast<double>(latency), SC_NS);
+    wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+    wait(static_cast<double>(timing.coherence_latency_ns), SC_NS);
 }
 
 // ─────────────────────────────────────────────
@@ -230,16 +242,56 @@ void Interconnect::do_bus_update(int requester_id, std::uint64_t addr) {
         }
         requester->set_state(addr, CacheState::S, "BusUpdate: escritura compartida Firefly");
         wf_shared_access = 1;
-        std::uint64_t latency = timing.bus_latency_ns + timing.coherence_latency_ns
-                              + timing.shared_latency_ns;
-        wait(static_cast<double>(latency), SC_NS);
+        wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+        wait(static_cast<double>(timing.coherence_latency_ns), SC_NS);
+        wait(static_cast<double>(timing.shared_latency_ns), SC_NS);
     } else {
         // Nadie mas tiene copia: el requester es dueno exclusivo
         requester->set_state(addr, CacheState::M, "BusUpdate: escritura privada Firefly");
         wf_shared_access = 0;
-        std::uint64_t latency = timing.bus_latency_ns + timing.memory_latency_ns;
-        wait(static_cast<double>(latency), SC_NS);
+        wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+        if (memory != nullptr) {
+            memory->access(addr, true);
+        } else {
+            wait(static_cast<double>(timing.memory_latency_ns), SC_NS);
+        }
     }
+}
+
+// ─────────────────────────────────────────────
+// Writeback: write de una linea en M hacia memoria (por eviccion).
+// Se serializa por el mismo arbitraje FCFS del bus.
+// ─────────────────────────────────────────────
+void Interconnect::handle_writeback(int requester_id, std::uint64_t addr) {
+    const std::uint64_t my_ticket = next_ticket++;
+    while (my_ticket != serving_ticket) {
+        wait(ticket_advanced);
+    }
+
+    stats.total++;
+    stats.writebacks++;
+    wf_requester_id = static_cast<sc_dt::sc_uint<3>>(requester_id);
+    wf_last_addr    = static_cast<sc_dt::sc_uint<64>>(addr);
+    wf_total_tx     = static_cast<sc_dt::sc_uint<64>>(stats.total);
+    wf_last_op      = 2;
+    wf_last_tx_type = 6; // Writeback
+    wf_shared_access = 0;
+
+    std::cout << "@" << sc_time_stamp()
+              << " | Bus: Writeback"
+              << " de PE" << requester_id
+              << " en 0x" << std::hex << addr << std::dec
+              << std::endl;
+
+    wait(static_cast<double>(timing.bus_latency_ns), SC_NS);
+    if (memory != nullptr) {
+        memory->access(addr, true);
+    } else {
+        wait(static_cast<double>(timing.memory_latency_ns), SC_NS);
+    }
+
+    serving_ticket++;
+    ticket_advanced.notify(SC_ZERO_TIME);
 }
 
 // ─────────────────────────────────────────────
@@ -285,6 +337,7 @@ void Interconnect::print_stats() const {
     std::cout << "  BusReadX            : " << stats.bus_read_x << std::endl;
     std::cout << "  BusUpgrade          : " << stats.bus_upgrades << std::endl;
     std::cout << "  BusUpdate           : " << stats.bus_updates << std::endl;
+    std::cout << "  Writebacks          : " << stats.writebacks << std::endl;
     std::cout << "  Invalidaciones      : " << stats.invalidations << std::endl;
     std::cout << "  Updates             : " << stats.updates << std::endl;
     std::cout << "  Downgrades M->S     : " << stats.downgrades_m_to_s << std::endl;

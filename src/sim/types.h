@@ -13,6 +13,7 @@ struct BusStats {
     std::uint64_t total = 0;
     std::uint64_t reads = 0;          // BusRead
     std::uint64_t writes = 0;         // total de escrituras al bus
+    std::uint64_t writebacks = 0;     // writebacks por eviccion de lineas en M
     std::uint64_t bus_read_x = 0;     // I -> M
     std::uint64_t bus_upgrades = 0;   // S -> M
     std::uint64_t bus_updates = 0;    // Firefly updates

@@ -8,6 +8,7 @@
 
 #include "sim/interconnect.h"
 #include "sim/l1_cache.h"
+#include "sim/main_memory.h"
 #include "sim/processing_element.h"
 #include "sim/types.h"
 
@@ -119,6 +120,10 @@ int sc_main(int argc, char* argv[]) {
     sc_clock clk("clk", 1, SC_NS);
     Interconnect bus("Global_Interconnect", protocol, interconnect_timing);
     bus.clk(clk);
+
+    MainMemory mem("MainMemory", interconnect_timing.memory_latency_ns);
+    mem.clk(clk);
+    bus.attach_memory(&mem);
 
     L1Cache* caches[4];
     ProcessingElement* pes[4];

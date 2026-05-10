@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.22)  10 MAY 2026 14:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.22)  10 MAY 2026 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -699,95 +699,19 @@ LaTeX Warning: Citation `hennessy2017computer' on page 2 undefined on input line
 
 LaTeX Warning: Citation `patterson2013computer' on page 2 undefined on input line 233.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.280 ...ciones dentro de `Interconnect` y un `SC_
-                                                  THREAD` de
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 281.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.281 concesió
-               n procesa la cola, otorgando el bus a una única petición po...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 281.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.281 ...rocesa la cola, otorgando el bus a una ú
-                                                  nica petición por vez.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 281.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.281 ...a, otorgando el bus a una única petició
-                                                  n por vez.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 282.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.282 Esta implementació
-                         n proporciona un ordenamiento estricto FCFS y facil...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 283.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.283 aná
-          lisis de fairness y latencias de espera.
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.284 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (618.0087pt too wide) in paragraph at lines 278--284
-\OT1/ptm/m/n/10 `SC$[]\OML/cmm/m/it/10 HREAD\OT1/cmr/m/n/10 `\OML/cmm/m/it/10 deconcesi[]nprocesalacola; otorgandoelbusauna[]nicapetici[]nporvez:Estaimplementaci[]nproporcionaunordenamientoestrictoFCFSyfacilitaelan[]lisisdefairnessylatenciasdeespera:$ 
- []
-
 
 LaTeX Warning: Reference `tab:matmul' on page 2 undefined on input line 307.
 
-
-LaTeX Warning: Citation `archibald1986cache' on page 2 undefined on input line 334.
-
-
-LaTeX Warning: Reference `fig:invalidaciones' on page 2 undefined on input line 338.
-
-
-LaTeX Warning: Reference `fig:updates' on page 2 undefined on input line 338.
-
 [2]
+
+LaTeX Warning: Citation `archibald1986cache' on page 3 undefined on input line 334.
+
+
+LaTeX Warning: Reference `fig:invalidaciones' on page 3 undefined on input line 338.
+
+
+LaTeX Warning: Reference `fig:updates' on page 3 undefined on input line 338.
+
 
 LaTeX Warning: Reference `tab:pipeline' on page 3 undefined on input line 343.
 
@@ -875,7 +799,7 @@ If that doesn't work, type  X <return>  to quit.
 
 LaTeX Warning: Citation `archibald1986cache' on page 3 undefined on input line 446.
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 453--457
 \OT1/ptm/b/n/10 cor-rect-ness. \OT1/ptm/m/n/10 The pipeline work-load shows 4
  []
@@ -890,7 +814,6 @@ Underfull \hbox (badness 1484) in paragraph at lines 453--457
 \OT1/ptm/m/n/10 in-cor-rectly counted as \OT1/pcr/m/n/10 BusReadX \OT1/ptm/m/n/10 with-out ex-plicit
  []
 
-[3]
 
 LaTeX Warning: Citation `nagarajan2020primer' on page 4 undefined on input line 460.
 
@@ -927,11 +850,11 @@ Here is how much of TeX's memory you used:
  50955 multiletter control sequences out of 15000+600000
  672419 words of font info for 132 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 84i,11n,104p,470b,586s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Docu.pdf (5 pages, 178987 bytes).
+ 84i,11n,104p,470b,584s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/YITAN/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Docu.pdf (5 pages, 144739 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
+ 140 PDF objects out of 1000 (max. 8388607)
  50 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

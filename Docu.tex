@@ -253,6 +253,8 @@ L1 miss detect latency      & 1\,ns          \\
 The \texttt{access(op, addr)} method determines whether the block is present
 and valid, tracks hit/miss/eviction/conflict-miss counters, and delegates to
 the interconnect when a bus transaction is required.
+When a line in state \texttt{M} is evicted, the cache triggers a writeback to
+main memory to preserve correctness in the timing model.
  
 \subsection{Interconnect and Transaction Model}
  
@@ -272,12 +274,14 @@ Internally, each transaction type is handled by a dedicated method
 and making the protocol logic auditable. The interconnect timing model uses four
 configurable parameters: bus arbitration (1\,ns), memory latency (5\,ns),
 shared cache latency (2\,ns), and coherence overhead (2\,ns).
+Main memory is modeled as an explicit module with parametric access latency,
+invoked by the interconnect on demand.
 
 % Arbitraje FCFS
 \paragraph{Arbitraje del Bus (FCFS)}
 El interconect incluye un arbitro interno que implementa una política
 first-come, first-served (FCFS). Las caches encolan sus solicitudes en una
-estructura de peticiones dentro de `Interconnect` y un `SC_THREAD` de
+estructura de peticiones dentro de \texttt{Interconnect} y un \texttt{SC\_THREAD} de
 concesión procesa la cola, otorgando el bus a una única petición por vez.
 Esta implementación proporciona un ordenamiento estricto FCFS y facilita el
 análisis de fairness y latencias de espera.

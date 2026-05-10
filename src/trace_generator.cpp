@@ -19,8 +19,11 @@ void generarMultiplicacion(int num_pes) {
 void generarPipeline(int num_pes) {
     std::ofstream archivo("traces/trace_pipeline.txt");
     archivo << "# Trace: Pipeline Criptografia (Productor-Consumidor)\n";
+    // Nota: stride >= 0x40 separa paquetes por bloque (64B) con el default del proyecto.
+    // Usamos 0x80 para evitar que multiples paquetes caigan en el mismo cache line.
+    const int stride = 0x80;
     for (int i = 0; i < 5; ++i) {
-        int base_addr = 0x5000 + (i * 0x10);
+        int base_addr = 0x5000 + (i * stride);
         archivo << "0 WRITE " << std::hex << base_addr << "\n"; // PE0 escribe (Produce)
         archivo << "1 READ "  << std::hex << base_addr << "\n"; // PE1 lee (Consume) y modifica
         archivo << "1 WRITE " << std::hex << base_addr << "\n";
