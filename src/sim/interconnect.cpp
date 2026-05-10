@@ -41,6 +41,15 @@ void Interconnect::set_wf_tx_type(BusTransaction tx) {
 // Metodo principal: decide que transaccion ejecutar
 // ─────────────────────────────────────────────
 void Interconnect::issue_transaction(BusTransaction tx, int requester_id, std::uint64_t addr) {
+    // ─────────────────────────────────────────────
+    // Arbitraje FCFS: asignamos ticket y esperamos nuestro turno.
+    // Esto garantiza exclusión mutua del bus y orden de servicio.
+    // ─────────────────────────────────────────────
+    const std::uint64_t my_ticket = next_ticket++;
+    while (my_ticket != serving_ticket) {
+        wait(ticket_advanced);
+    }
+
     stats.total++;
     wf_requester_id = static_cast<sc_dt::sc_uint<3>>(requester_id);
     wf_last_addr    = static_cast<sc_dt::sc_uint<64>>(addr);
@@ -70,6 +79,10 @@ void Interconnect::issue_transaction(BusTransaction tx, int requester_id, std::u
             // usado internamente, no deberia llegar aqui directamente
             break;
     }
+
+    // Liberar bus para el siguiente en la cola FCFS.
+    serving_ticket++;
+    ticket_advanced.notify(SC_ZERO_TIME);
 }
 
 // ─────────────────────────────────────────────
