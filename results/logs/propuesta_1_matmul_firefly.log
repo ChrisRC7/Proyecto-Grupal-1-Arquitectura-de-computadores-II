@@ -1,0 +1,81 @@
+--- Iniciando Simulacion HW con 4 PEs ---
+Trace: traces/trace_matmul.txt
+Protocolo: Firefly
+L1 config: size=1024B, block=64B, ways=2, replacement=LRU, l1_hit=1ns, l1_miss=1ns
+Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
+
+Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
+@2 ns | Bus: BusRead de PE0 en 0x1000
+@2 ns | L1_0 : 0x1000 I -> S (BusRead: datos de memoria)
+@8 ns | Bus: BusRead de PE1 en 0x1004
+@8 ns | L1_1 : 0x1004 I -> S (BusRead: datos de cache compartida)
+@11 ns | Bus: BusRead de PE2 en 0x1008
+@11 ns | L1_2 : 0x1008 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusRead de PE3 en 0x100c
+@14 ns | L1_3 : 0x100c I -> S (BusRead: datos de cache compartida)
+@17 ns | Bus: BusUpdate de PE0 en 0x2000
+@17 ns | L1_0 : 0x2000 I -> M (BusUpdate: escritura privada Firefly)
+@23 ns | Bus: BusUpdate de PE1 en 0x2000
+@23 ns | L1_0 : 0x2000 M -> S (BusUpdate: copia actualizada Firefly)
+@23 ns | L1_1 : 0x2000 I -> S (BusUpdate: escritura compartida Firefly)
+@28 ns | Bus: BusUpdate de PE2 en 0x2000
+@28 ns | L1_2 : 0x2000 I -> S (BusUpdate: escritura compartida Firefly)
+@33 ns | Bus: BusUpdate de PE3 en 0x2000
+@33 ns | L1_3 : 0x2000 I -> S (BusUpdate: escritura compartida Firefly)
+@38 ns | Bus: BusUpdate de PE0 en 0x2000
+@43 ns | Bus: BusUpdate de PE1 en 0x2000
+@48 ns | Bus: BusUpdate de PE2 en 0x2000
+@53 ns | Bus: BusUpdate de PE3 en 0x2000
+@58 ns | Bus: BusUpdate de PE0 en 0x2000
+@63 ns | Bus: BusUpdate de PE1 en 0x2000
+@68 ns | Bus: BusUpdate de PE2 en 0x2000
+@73 ns | Bus: BusUpdate de PE3 en 0x2000
+@78 ns | Bus: BusUpdate de PE0 en 0x2000
+@83 ns | Bus: BusUpdate de PE1 en 0x2000
+@88 ns | Bus: BusUpdate de PE2 en 0x2000
+@93 ns | Bus: BusUpdate de PE3 en 0x2000
+@98 ns | Bus: BusUpdate de PE0 en 0x2000
+@103 ns | Bus: BusUpdate de PE1 en 0x2000
+@108 ns | Bus: BusUpdate de PE2 en 0x2000
+@113 ns | Bus: BusUpdate de PE3 en 0x2000
+@118 ns | Bus: BusUpdate de PE0 en 0x2000
+@123 ns | Bus: BusUpdate de PE1 en 0x2000
+@128 ns | Bus: BusUpdate de PE2 en 0x2000
+@133 ns | Bus: BusUpdate de PE3 en 0x2000
+@138 ns | Bus: BusUpdate de PE0 en 0x2000
+@143 ns | Bus: BusUpdate de PE1 en 0x2000
+@148 ns | Bus: BusUpdate de PE2 en 0x2000
+@153 ns | Bus: BusUpdate de PE3 en 0x2000
+@158 ns | Bus: BusUpdate de PE0 en 0x2000
+@163 ns | Bus: BusUpdate de PE1 en 0x2000
+@168 ns | Bus: BusUpdate de PE2 en 0x2000
+@173 ns | Bus: BusUpdate de PE3 en 0x2000
+@178 ns | Bus: BusUpdate de PE0 en 0x2000
+@183 ns | Bus: BusUpdate de PE1 en 0x2000
+@188 ns | Bus: BusUpdate de PE2 en 0x2000
+@193 ns | Bus: BusUpdate de PE3 en 0x2000
+@198 ns | Bus: BusUpdate de PE0 en 0x2000
+@203 ns | Bus: BusUpdate de PE1 en 0x2000
+@208 ns | Bus: BusUpdate de PE2 en 0x2000
+@213 ns | Bus: BusUpdate de PE3 en 0x2000
+Waveform VCD: results/waveforms/sim_wave.vcd
+--- Simulacion Finalizada ---
+
+=== ESTADISTICAS INTERCONNECT (Firefly) ===
+Transacciones totales : 44
+Lecturas              : 4
+Escrituras            : 40
+  BusRead             : 4
+  BusReadX            : 0
+  BusUpgrade          : 0
+  BusUpdate           : 40
+  Writebacks          : 0
+  Invalidaciones      : 0
+  Updates             : 114
+  Downgrades M->S     : 0
+
+=== ESTADISTICAS L1 ===
+L1_0 | RH=9 RM=1 WH=9 WM=1 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_1 | RH=9 RM=1 WH=9 WM=1 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_2 | RH=9 RM=1 WH=9 WM=1 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_3 | RH=9 RM=1 WH=9 WM=1 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)

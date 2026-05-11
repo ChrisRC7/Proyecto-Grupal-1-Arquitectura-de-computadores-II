@@ -1,0 +1,68 @@
+--- Iniciando Simulacion HW con 4 PEs ---
+Trace: traces/trace_pipeline.txt
+Protocolo: Firefly
+L1 config: size=1024B, block=64B, ways=2, replacement=LRU, l1_hit=1ns, l1_miss=1ns
+Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
+
+Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
+@2 ns | Bus: BusUpdate de PE0 en 0x5000
+@2 ns | L1_0 : 0x5000 I -> M (BusUpdate: escritura privada Firefly)
+@8 ns | Bus: BusRead de PE1 en 0x5000
+@8 ns | L1_0 : 0x5000 M -> S (BusRead remoto: downgrade M->S)
+@8 ns | L1_1 : 0x5000 I -> S (BusRead: datos de cache compartida)
+@11 ns | Bus: BusRead de PE2 en 0x5000
+@11 ns | L1_2 : 0x5000 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusUpdate de PE0 en 0x5080
+@14 ns | L1_0 : 0x5080 I -> M (BusUpdate: escritura privada Firefly)
+@20 ns | Bus: BusUpdate de PE1 en 0x5000
+@25 ns | Bus: BusRead de PE2 en 0x5080
+@25 ns | L1_0 : 0x5080 M -> S (BusRead remoto: downgrade M->S)
+@25 ns | L1_2 : 0x5080 I -> S (BusRead: datos de cache compartida)
+@28 ns | Bus: BusUpdate de PE0 en 0x5100
+@28 ns | L1_0 : 0x5100 I -> M (BusUpdate: escritura privada Firefly)
+@34 ns | Bus: BusRead de PE1 en 0x5080
+@34 ns | L1_1 : 0x5080 I -> S (BusRead: datos de cache compartida)
+@37 ns | Bus: BusRead de PE2 en 0x5100
+@37 ns | L1_0 : 0x5100 M -> S (BusRead remoto: downgrade M->S)
+@37 ns | L1_2 : 0x5100 I -> S (BusRead: datos de cache compartida)
+@40 ns | Bus: BusUpdate de PE0 en 0x5180
+@40 ns | L1_0 : 0x5180 I -> M (BusUpdate: escritura privada Firefly)
+@46 ns | Bus: BusUpdate de PE1 en 0x5080
+@51 ns | Bus: BusRead de PE2 en 0x5180
+@51 ns | L1_0 : 0x5180 M -> S (BusRead remoto: downgrade M->S)
+@51 ns | L1_2 : 0x5180 I -> S (BusRead: datos de cache compartida)
+@54 ns | Bus: BusUpdate de PE0 en 0x5200
+@54 ns | L1_0 : 0x5200 I -> M (BusUpdate: escritura privada Firefly)
+@60 ns | Bus: BusRead de PE1 en 0x5100
+@60 ns | L1_1 : 0x5100 I -> S (BusRead: datos de cache compartida)
+@63 ns | Bus: BusRead de PE2 en 0x5200
+@63 ns | L1_0 : 0x5200 M -> S (BusRead remoto: downgrade M->S)
+@63 ns | L1_2 : 0x5200 I -> S (BusRead: datos de cache compartida)
+@66 ns | Bus: BusUpdate de PE1 en 0x5100
+@73 ns | Bus: BusRead de PE1 en 0x5180
+@73 ns | L1_1 : 0x5180 I -> S (BusRead: datos de cache compartida)
+@78 ns | Bus: BusUpdate de PE1 en 0x5180
+@85 ns | Bus: BusRead de PE1 en 0x5200
+@85 ns | L1_1 : 0x5200 I -> S (BusRead: datos de cache compartida)
+@90 ns | Bus: BusUpdate de PE1 en 0x5200
+Waveform VCD: results/waveforms/sim_wave.vcd
+--- Simulacion Finalizada ---
+
+=== ESTADISTICAS INTERCONNECT (Firefly) ===
+Transacciones totales : 20
+Lecturas              : 10
+Escrituras            : 10
+  BusRead             : 10
+  BusReadX            : 0
+  BusUpgrade          : 0
+  BusUpdate           : 10
+  Writebacks          : 0
+  Invalidaciones      : 0
+  Updates             : 10
+  Downgrades M->S     : 5
+
+=== ESTADISTICAS L1 ===
+L1_0 | RH=0 RM=0 WH=0 WM=5 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_1 | RH=0 RM=5 WH=5 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_2 | RH=0 RM=5 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_3 | RH=0 RM=0 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
