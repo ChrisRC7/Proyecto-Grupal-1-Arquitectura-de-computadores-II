@@ -7,131 +7,131 @@ Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
 Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
 @2 ns | Bus: BusRead de PE0 en 0x1000
 @2 ns | L1_0 : 0x1000 I -> S (BusRead: datos de memoria)
-@2 ns | Bus: BusRead de PE1 en 0x1004
-@2 ns | L1_1 : 0x1004 I -> S (BusRead: datos de cache compartida)
-@2 ns | Bus: BusRead de PE2 en 0x1008
-@2 ns | L1_2 : 0x1008 I -> S (BusRead: datos de cache compartida)
-@2 ns | Bus: BusRead de PE3 en 0x100c
-@2 ns | L1_3 : 0x100c I -> S (BusRead: datos de cache compartida)
-@7 ns | Bus: BusReadX de PE3 en 0x2000
-@7 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@7 ns | Bus: BusReadX de PE2 en 0x2000
-@7 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@7 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@7 ns | Bus: BusReadX de PE1 en 0x2000
-@7 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@7 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@10 ns | Bus: BusReadX de PE0 en 0x2000
-@10 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@10 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@16 ns | Bus: BusReadX de PE2 en 0x2000
-@16 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@16 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@16 ns | Bus: BusReadX de PE1 en 0x2000
-@16 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@16 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@19 ns | Bus: BusReadX de PE0 en 0x2000
-@19 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@19 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@19 ns | Bus: BusReadX de PE3 en 0x2000
-@19 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@19 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@8 ns | Bus: BusRead de PE1 en 0x1004
+@8 ns | L1_1 : 0x1004 I -> S (BusRead: datos de cache compartida)
+@11 ns | Bus: BusRead de PE2 en 0x1008
+@11 ns | L1_2 : 0x1008 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusRead de PE3 en 0x100c
+@14 ns | L1_3 : 0x100c I -> S (BusRead: datos de cache compartida)
+@17 ns | Bus: BusReadX de PE0 en 0x2000
+@17 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
 @25 ns | Bus: BusReadX de PE1 en 0x2000
-@25 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@25 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
 @25 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@25 ns | Bus: BusReadX de PE2 en 0x2000
-@25 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@25 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@28 ns | Bus: BusReadX de PE3 en 0x2000
-@28 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@28 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@28 ns | Bus: BusReadX de PE0 en 0x2000
-@28 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@28 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@34 ns | Bus: BusReadX de PE2 en 0x2000
-@34 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@34 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@34 ns | Bus: BusReadX de PE1 en 0x2000
-@34 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@34 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@37 ns | Bus: BusReadX de PE0 en 0x2000
-@37 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@37 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@37 ns | Bus: BusReadX de PE3 en 0x2000
-@37 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@37 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@43 ns | Bus: BusReadX de PE1 en 0x2000
-@43 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@43 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@43 ns | Bus: BusReadX de PE2 en 0x2000
-@43 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@43 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@46 ns | Bus: BusReadX de PE3 en 0x2000
-@46 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@46 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@46 ns | Bus: BusReadX de PE0 en 0x2000
-@46 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@46 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@52 ns | Bus: BusReadX de PE2 en 0x2000
-@52 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@52 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@52 ns | Bus: BusReadX de PE1 en 0x2000
-@52 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@52 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@55 ns | Bus: BusReadX de PE0 en 0x2000
-@55 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@55 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@30 ns | Bus: BusReadX de PE2 en 0x2000
+@30 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@30 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@35 ns | Bus: BusReadX de PE3 en 0x2000
+@35 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@35 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@40 ns | Bus: BusReadX de PE0 en 0x2000
+@40 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@40 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@45 ns | Bus: BusReadX de PE1 en 0x2000
+@45 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@45 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@50 ns | Bus: BusReadX de PE2 en 0x2000
+@50 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@50 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
 @55 ns | Bus: BusReadX de PE3 en 0x2000
-@55 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@55 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
 @55 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@61 ns | Bus: BusReadX de PE1 en 0x2000
-@61 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@61 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@61 ns | Bus: BusReadX de PE2 en 0x2000
-@61 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@61 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@64 ns | Bus: BusReadX de PE3 en 0x2000
-@64 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@64 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@64 ns | Bus: BusReadX de PE0 en 0x2000
-@64 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@64 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@60 ns | Bus: BusReadX de PE0 en 0x2000
+@60 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@60 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@65 ns | Bus: BusReadX de PE1 en 0x2000
+@65 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@65 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
 @70 ns | Bus: BusReadX de PE2 en 0x2000
-@70 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@70 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
 @70 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@70 ns | Bus: BusReadX de PE1 en 0x2000
-@70 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@70 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@73 ns | Bus: BusReadX de PE0 en 0x2000
-@73 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@73 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@73 ns | Bus: BusReadX de PE3 en 0x2000
-@73 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@73 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@79 ns | Bus: BusReadX de PE1 en 0x2000
-@79 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@79 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@79 ns | Bus: BusReadX de PE2 en 0x2000
-@79 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@79 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@82 ns | Bus: BusReadX de PE3 en 0x2000
-@82 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@82 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@82 ns | Bus: BusReadX de PE0 en 0x2000
-@82 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@82 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@88 ns | Bus: BusReadX de PE2 en 0x2000
-@88 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@88 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@88 ns | Bus: BusReadX de PE1 en 0x2000
-@88 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@88 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@91 ns | Bus: BusReadX de PE0 en 0x2000
-@91 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@91 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
-@91 ns | Bus: BusReadX de PE3 en 0x2000
-@91 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
-@91 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@75 ns | Bus: BusReadX de PE3 en 0x2000
+@75 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@75 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@80 ns | Bus: BusReadX de PE0 en 0x2000
+@80 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@80 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@85 ns | Bus: BusReadX de PE1 en 0x2000
+@85 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@85 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@90 ns | Bus: BusReadX de PE2 en 0x2000
+@90 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@90 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@95 ns | Bus: BusReadX de PE3 en 0x2000
+@95 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@95 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@100 ns | Bus: BusReadX de PE0 en 0x2000
+@100 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@100 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@105 ns | Bus: BusReadX de PE1 en 0x2000
+@105 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@105 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@110 ns | Bus: BusReadX de PE2 en 0x2000
+@110 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@110 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@115 ns | Bus: BusReadX de PE3 en 0x2000
+@115 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@115 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@120 ns | Bus: BusReadX de PE0 en 0x2000
+@120 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@120 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@125 ns | Bus: BusReadX de PE1 en 0x2000
+@125 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@125 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@130 ns | Bus: BusReadX de PE2 en 0x2000
+@130 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@130 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@135 ns | Bus: BusReadX de PE3 en 0x2000
+@135 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@135 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@140 ns | Bus: BusReadX de PE0 en 0x2000
+@140 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@140 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@145 ns | Bus: BusReadX de PE1 en 0x2000
+@145 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@145 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@150 ns | Bus: BusReadX de PE2 en 0x2000
+@150 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@150 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@155 ns | Bus: BusReadX de PE3 en 0x2000
+@155 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@155 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@160 ns | Bus: BusReadX de PE0 en 0x2000
+@160 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@160 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@165 ns | Bus: BusReadX de PE1 en 0x2000
+@165 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@165 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@170 ns | Bus: BusReadX de PE2 en 0x2000
+@170 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@170 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@175 ns | Bus: BusReadX de PE3 en 0x2000
+@175 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@175 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@180 ns | Bus: BusReadX de PE0 en 0x2000
+@180 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@180 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@185 ns | Bus: BusReadX de PE1 en 0x2000
+@185 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@185 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@190 ns | Bus: BusReadX de PE2 en 0x2000
+@190 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@190 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@195 ns | Bus: BusReadX de PE3 en 0x2000
+@195 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@195 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@200 ns | Bus: BusReadX de PE0 en 0x2000
+@200 ns | L1_3 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@200 ns | L1_0 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@205 ns | Bus: BusReadX de PE1 en 0x2000
+@205 ns | L1_0 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@205 ns | L1_1 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@210 ns | Bus: BusReadX de PE2 en 0x2000
+@210 ns | L1_1 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@210 ns | L1_2 : 0x2000 I -> M (BusReadX: propietario exclusivo)
+@215 ns | Bus: BusReadX de PE3 en 0x2000
+@215 ns | L1_2 : 0x2000 M -> I (BusReadX: invalidacion remota)
+@215 ns | L1_3 : 0x2000 I -> M (BusReadX: propietario exclusivo)
 Waveform VCD: results/waveforms/sim_wave.vcd
 --- Simulacion Finalizada ---
 
@@ -143,6 +143,7 @@ Escrituras            : 40
   BusReadX            : 40
   BusUpgrade          : 0
   BusUpdate           : 0
+  Writebacks          : 0
   Invalidaciones      : 39
   Updates             : 0
   Downgrades M->S     : 0

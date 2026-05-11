@@ -236,3 +236,70 @@ Si usan una instalacion local distinta, pueden sobrescribir la ruta al compilar:
 ```bash
 make SYSTEMC_HOME=/ruta/a/systemc
 ```
+Para generar y revisar los VCD de MSI y Firefly, usa estas corridas directas:
+
+```bash
+./sim_proyecto traces/trace_pipeline.txt msi 1024 64 2 lru 1 1 1 5 2 2 results/waveforms/pipeline_msi
+./sim_proyecto traces/trace_pipeline.txt firefly 1024 64 2 lru 1 1 1 5 2 2 results/waveforms/pipeline_firefly
+```
+
+Luego abre cada uno en GTKWave:
+
+```bash
+gtkwave results/waveforms/pipeline_msi.vcd
+gtkwave results/waveforms/pipeline_firefly.vcd
+```
+
+Si quieres generar primero todo el lote y después revisar el VCD de MSI por defecto:
+
+```bash
+make waveforms
+```
+
+Eso te deja pipeline_msi.vcd.
+
+Si además quieres regenerar los CSV y logs antes de mirar el waveform:
+
+```bash
+make test_csv
+```
+
+**Cómo debería comportarse bus_last_tx_type**
+
+La señal está trazada en main.cpp y se codifica en interconnect.cpp:
+
+- `000` o `0`: sin transacción / estado inicial
+- `001` o `1`: BusRead
+- `010` o `2`: BusReadX
+- `011` o `3`: BusUpgrade
+- `100` o `4`: BusUpdate
+
+**En MSI deberías ver:**
+- `001` en lecturas con miss
+- `010` cuando un PE escribe sin copia previa
+- `011` cuando un PE ya tenía la línea en S y quiere escribir
+
+**En Firefly deberías ver:**
+- `001` en lecturas
+- `100` en escrituras, porque Firefly usa BusUpdate
+
+**Cómo leerlo en GTKWave**
+Agrega estas señales:
+
+- `bus_last_tx_type`
+- `bus_requester_id`
+- `bus_last_addr`
+- `bus_total_tx`
+- `bus_invalidations`
+- `bus_updates`
+- `l1_0_last_state`
+- `l1_1_last_state`
+- `l1_2_last_state`
+- `l1_3_last_state`
+
+**Patrón esperado**
+- En MSI: `001 -> 010 -> 011` según ocurran lecturas, write misses y upgrades.
+- En Firefly: `001 -> 100 -> 001 -> 100`, alternando lecturas con actualizaciones.
+- Entre transacciones puede quedarse en `000` si no hubo evento nuevo todavía.
+
+Si quieres, te paso también un orden exacto de señales para que en GTKWave te quede legible y no tengas que buscarlas una por una.

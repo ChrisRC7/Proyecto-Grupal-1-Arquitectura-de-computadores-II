@@ -4,12 +4,12 @@ Este resumen se genera a partir de `results/interconnect_stats.csv` y `results/l
 
 | Propuesta | Protocolo | Tx bus | Invalidaciones | Updates | Downgrades M->S | Tiempo sim (ns) |
 |---|---|---:|---:|---:|---:|---:|
-| propuesta_1_matmul | MSI | 44 | 39 | 0 | 0 | 91 |
-| propuesta_1_matmul | FIREFLY | 44 | 0 | 114 | 0 | 91 |
-| propuesta_2_pipeline | MSI | 18 | 12 | 0 | 6 | 46 |
-| propuesta_2_pipeline | FIREFLY | 14 | 0 | 17 | 1 | 46 |
-| extra_migratorio | MSI | 61 | 55 | 0 | 16 | 91 |
-| extra_migratorio | FIREFLY | 36 | 0 | 96 | 0 | 73 |
+| propuesta_1_matmul | MSI | 44 | 39 | 0 | 0 | 215 |
+| propuesta_1_matmul | FIREFLY | 44 | 0 | 114 | 0 | 213 |
+| propuesta_2_pipeline | MSI | 20 | 10 | 0 | 5 | 92 |
+| propuesta_2_pipeline | FIREFLY | 20 | 0 | 10 | 5 | 90 |
+| extra_migratorio | MSI | 57 | 48 | 0 | 7 | 187 |
+| extra_migratorio | FIREFLY | 36 | 0 | 96 | 0 | 172 |
 
 ## Conjunto formal de transacciones de bus
 
