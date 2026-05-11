@@ -7,44 +7,44 @@ Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
 Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
 @2 ns | Bus: BusRead de PE0 en 0x7000
 @2 ns | L1_0 : 0x7000 I -> S (BusRead: datos de memoria)
-@2 ns | Bus: BusRead de PE1 en 0x7000
-@2 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
-@2 ns | Bus: BusRead de PE2 en 0x7000
-@2 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
-@2 ns | Bus: BusRead de PE3 en 0x7000
-@2 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
-@7 ns | Bus: BusUpdate de PE3 en 0x7000
-@7 ns | Bus: BusUpdate de PE2 en 0x7000
-@7 ns | Bus: BusUpdate de PE1 en 0x7000
-@10 ns | Bus: BusUpdate de PE0 en 0x7000
-@16 ns | Bus: BusUpdate de PE2 en 0x7000
-@16 ns | Bus: BusUpdate de PE1 en 0x7000
-@16 ns | Bus: BusUpdate de PE3 en 0x7000
-@19 ns | Bus: BusUpdate de PE0 en 0x7000
-@25 ns | Bus: BusUpdate de PE1 en 0x7000
-@25 ns | Bus: BusUpdate de PE3 en 0x7000
-@25 ns | Bus: BusUpdate de PE2 en 0x7000
-@28 ns | Bus: BusUpdate de PE0 en 0x7000
-@34 ns | Bus: BusUpdate de PE3 en 0x7000
-@34 ns | Bus: BusUpdate de PE2 en 0x7000
-@34 ns | Bus: BusUpdate de PE1 en 0x7000
+@8 ns | Bus: BusRead de PE1 en 0x7000
+@8 ns | L1_1 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@11 ns | Bus: BusRead de PE2 en 0x7000
+@11 ns | L1_2 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@14 ns | Bus: BusRead de PE3 en 0x7000
+@14 ns | L1_3 : 0x7000 I -> S (BusRead: datos de cache compartida)
+@17 ns | Bus: BusUpdate de PE0 en 0x7000
+@22 ns | Bus: BusUpdate de PE1 en 0x7000
+@27 ns | Bus: BusUpdate de PE2 en 0x7000
+@32 ns | Bus: BusUpdate de PE3 en 0x7000
 @37 ns | Bus: BusUpdate de PE0 en 0x7000
-@43 ns | Bus: BusUpdate de PE2 en 0x7000
-@43 ns | Bus: BusUpdate de PE1 en 0x7000
-@43 ns | Bus: BusUpdate de PE3 en 0x7000
-@46 ns | Bus: BusUpdate de PE0 en 0x7000
-@52 ns | Bus: BusUpdate de PE1 en 0x7000
+@42 ns | Bus: BusUpdate de PE1 en 0x7000
+@47 ns | Bus: BusUpdate de PE2 en 0x7000
 @52 ns | Bus: BusUpdate de PE3 en 0x7000
-@52 ns | Bus: BusUpdate de PE2 en 0x7000
-@55 ns | Bus: BusUpdate de PE0 en 0x7000
-@61 ns | Bus: BusUpdate de PE3 en 0x7000
-@61 ns | Bus: BusUpdate de PE2 en 0x7000
-@61 ns | Bus: BusUpdate de PE1 en 0x7000
-@64 ns | Bus: BusUpdate de PE0 en 0x7000
-@70 ns | Bus: BusUpdate de PE2 en 0x7000
-@70 ns | Bus: BusUpdate de PE1 en 0x7000
-@70 ns | Bus: BusUpdate de PE3 en 0x7000
-@73 ns | Bus: BusUpdate de PE0 en 0x7000
+@57 ns | Bus: BusUpdate de PE0 en 0x7000
+@62 ns | Bus: BusUpdate de PE1 en 0x7000
+@67 ns | Bus: BusUpdate de PE2 en 0x7000
+@72 ns | Bus: BusUpdate de PE3 en 0x7000
+@77 ns | Bus: BusUpdate de PE0 en 0x7000
+@82 ns | Bus: BusUpdate de PE1 en 0x7000
+@87 ns | Bus: BusUpdate de PE2 en 0x7000
+@92 ns | Bus: BusUpdate de PE3 en 0x7000
+@97 ns | Bus: BusUpdate de PE0 en 0x7000
+@102 ns | Bus: BusUpdate de PE1 en 0x7000
+@107 ns | Bus: BusUpdate de PE2 en 0x7000
+@112 ns | Bus: BusUpdate de PE3 en 0x7000
+@117 ns | Bus: BusUpdate de PE0 en 0x7000
+@122 ns | Bus: BusUpdate de PE1 en 0x7000
+@127 ns | Bus: BusUpdate de PE2 en 0x7000
+@132 ns | Bus: BusUpdate de PE3 en 0x7000
+@137 ns | Bus: BusUpdate de PE0 en 0x7000
+@142 ns | Bus: BusUpdate de PE1 en 0x7000
+@147 ns | Bus: BusUpdate de PE2 en 0x7000
+@152 ns | Bus: BusUpdate de PE3 en 0x7000
+@157 ns | Bus: BusUpdate de PE0 en 0x7000
+@162 ns | Bus: BusUpdate de PE1 en 0x7000
+@167 ns | Bus: BusUpdate de PE2 en 0x7000
+@172 ns | Bus: BusUpdate de PE3 en 0x7000
 Waveform VCD: results/waveforms/sim_wave.vcd
 --- Simulacion Finalizada ---
 
@@ -56,6 +56,7 @@ Escrituras            : 32
   BusReadX            : 0
   BusUpgrade          : 0
   BusUpdate           : 32
+  Writebacks          : 0
   Invalidaciones      : 0
   Updates             : 96
   Downgrades M->S     : 0

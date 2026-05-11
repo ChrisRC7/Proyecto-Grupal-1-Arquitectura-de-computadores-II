@@ -7,75 +7,77 @@ Interconnect timing: bus=1ns, mem=5ns, shared=2ns, coherence=2
 Info: (I703) tracing timescale unit set: 1 ps (results/waveforms/sim_wave.vcd)
 @2 ns | Bus: BusReadX de PE0 en 0x5000
 @2 ns | L1_0 : 0x5000 I -> M (BusReadX: propietario exclusivo)
-@2 ns | Bus: BusRead de PE1 en 0x5000
-@2 ns | L1_0 : 0x5000 M -> S (BusRead remoto: downgrade M->S)
-@2 ns | L1_1 : 0x5000 I -> S (BusRead: datos de cache compartida)
-@2 ns | Bus: BusRead de PE2 en 0x5000
-@2 ns | L1_2 : 0x5000 I -> S (BusRead: datos de cache compartida)
-@7 ns | Bus: BusUpgrade de PE1 en 0x5000
-@7 ns | L1_0 : 0x5000 S -> I (BusUpgrade: invalidacion remota)
-@7 ns | L1_2 : 0x5000 S -> I (BusUpgrade: invalidacion remota)
-@7 ns | L1_1 : 0x5000 S -> M (BusUpgrade: propietario exclusivo)
-@9 ns | Bus: BusRead de PE2 en 0x5020
-@9 ns | L1_1 : 0x5020 M -> S (BusRead remoto: downgrade M->S)
-@9 ns | L1_2 : 0x5020 I -> S (BusRead: datos de cache compartida)
-@12 ns | Bus: BusReadX de PE0 en 0x5010
-@12 ns | L1_1 : 0x5010 S -> I (BusReadX: invalidacion remota)
-@12 ns | L1_2 : 0x5010 S -> I (BusReadX: invalidacion remota)
-@12 ns | L1_0 : 0x5010 I -> M (BusReadX: propietario exclusivo)
-@14 ns | Bus: BusReadX de PE1 en 0x5010
-@14 ns | L1_0 : 0x5010 M -> I (BusReadX: invalidacion remota)
-@14 ns | L1_1 : 0x5010 I -> M (BusReadX: propietario exclusivo)
-@14 ns | Bus: BusRead de PE2 en 0x5030
-@14 ns | L1_1 : 0x5030 M -> S (BusRead remoto: downgrade M->S)
-@14 ns | L1_2 : 0x5030 I -> S (BusRead: datos de cache compartida)
-@19 ns | Bus: BusRead de PE2 en 0x5040
-@19 ns | L1_2 : 0x5040 I -> S (BusRead: datos de memoria)
-@19 ns | Bus: BusReadX de PE0 en 0x5020
-@19 ns | L1_1 : 0x5020 S -> I (BusReadX: invalidacion remota)
-@19 ns | L1_2 : 0x5020 S -> I (BusReadX: invalidacion remota)
-@19 ns | L1_0 : 0x5020 I -> M (BusReadX: propietario exclusivo)
-@21 ns | Bus: BusRead de PE1 en 0x5020
-@21 ns | L1_0 : 0x5020 M -> S (BusRead remoto: downgrade M->S)
-@21 ns | L1_1 : 0x5020 I -> S (BusRead: datos de cache compartida)
-@26 ns | Bus: BusUpgrade de PE1 en 0x5020
-@26 ns | L1_0 : 0x5020 S -> I (BusUpgrade: invalidacion remota)
-@26 ns | L1_1 : 0x5020 S -> M (BusUpgrade: propietario exclusivo)
-@26 ns | Bus: BusReadX de PE0 en 0x5030
-@26 ns | L1_1 : 0x5030 M -> I (BusReadX: invalidacion remota)
-@26 ns | L1_0 : 0x5030 I -> M (BusReadX: propietario exclusivo)
-@31 ns | Bus: BusRead de PE1 en 0x5030
-@31 ns | L1_0 : 0x5030 M -> S (BusRead remoto: downgrade M->S)
-@31 ns | L1_1 : 0x5030 I -> S (BusRead: datos de cache compartida)
-@33 ns | Bus: BusReadX de PE0 en 0x5040
-@33 ns | L1_2 : 0x5040 S -> I (BusReadX: invalidacion remota)
-@33 ns | L1_0 : 0x5040 I -> M (BusReadX: propietario exclusivo)
-@36 ns | Bus: BusUpgrade de PE1 en 0x5030
-@36 ns | L1_0 : 0x5030 S -> I (BusUpgrade: invalidacion remota)
-@36 ns | L1_1 : 0x5030 S -> M (BusUpgrade: propietario exclusivo)
-@41 ns | Bus: BusRead de PE1 en 0x5040
-@41 ns | L1_0 : 0x5040 M -> S (BusRead remoto: downgrade M->S)
-@41 ns | L1_1 : 0x5040 I -> S (BusRead: datos de cache compartida)
-@46 ns | Bus: BusUpgrade de PE1 en 0x5040
-@46 ns | L1_0 : 0x5040 S -> I (BusUpgrade: invalidacion remota)
-@46 ns | L1_1 : 0x5040 S -> M (BusUpgrade: propietario exclusivo)
+@10 ns | Bus: BusRead de PE1 en 0x5000
+@10 ns | L1_0 : 0x5000 M -> S (BusRead remoto: downgrade M->S)
+@10 ns | L1_1 : 0x5000 I -> S (BusRead: datos de cache compartida)
+@13 ns | Bus: BusRead de PE2 en 0x5000
+@13 ns | L1_2 : 0x5000 I -> S (BusRead: datos de cache compartida)
+@16 ns | Bus: BusReadX de PE0 en 0x5080
+@16 ns | L1_0 : 0x5080 I -> M (BusReadX: propietario exclusivo)
+@24 ns | Bus: BusUpgrade de PE1 en 0x5000
+@24 ns | L1_0 : 0x5000 S -> I (BusUpgrade: invalidacion remota)
+@24 ns | L1_2 : 0x5000 S -> I (BusUpgrade: invalidacion remota)
+@24 ns | L1_1 : 0x5000 S -> M (BusUpgrade: propietario exclusivo)
+@27 ns | Bus: BusRead de PE2 en 0x5080
+@27 ns | L1_0 : 0x5080 M -> S (BusRead remoto: downgrade M->S)
+@27 ns | L1_2 : 0x5080 I -> S (BusRead: datos de cache compartida)
+@30 ns | Bus: BusReadX de PE0 en 0x5100
+@30 ns | L1_0 : 0x5100 I -> M (BusReadX: propietario exclusivo)
+@38 ns | Bus: BusRead de PE1 en 0x5080
+@38 ns | L1_1 : 0x5080 I -> S (BusRead: datos de cache compartida)
+@41 ns | Bus: BusRead de PE2 en 0x5100
+@41 ns | L1_0 : 0x5100 M -> S (BusRead remoto: downgrade M->S)
+@41 ns | L1_2 : 0x5100 I -> S (BusRead: datos de cache compartida)
+@44 ns | Bus: BusReadX de PE0 en 0x5180
+@44 ns | L1_0 : 0x5180 I -> M (BusReadX: propietario exclusivo)
+@52 ns | Bus: BusUpgrade de PE1 en 0x5080
+@52 ns | L1_0 : 0x5080 S -> I (BusUpgrade: invalidacion remota)
+@52 ns | L1_2 : 0x5080 S -> I (BusUpgrade: invalidacion remota)
+@52 ns | L1_1 : 0x5080 S -> M (BusUpgrade: propietario exclusivo)
+@55 ns | Bus: BusRead de PE2 en 0x5180
+@55 ns | L1_0 : 0x5180 M -> S (BusRead remoto: downgrade M->S)
+@55 ns | L1_2 : 0x5180 I -> S (BusRead: datos de cache compartida)
+@58 ns | Bus: BusReadX de PE0 en 0x5200
+@58 ns | L1_0 : 0x5200 I -> M (BusReadX: propietario exclusivo)
+@66 ns | Bus: BusRead de PE1 en 0x5100
+@66 ns | L1_1 : 0x5100 I -> S (BusRead: datos de cache compartida)
+@69 ns | Bus: BusRead de PE2 en 0x5200
+@69 ns | L1_0 : 0x5200 M -> S (BusRead remoto: downgrade M->S)
+@69 ns | L1_2 : 0x5200 I -> S (BusRead: datos de cache compartida)
+@72 ns | Bus: BusUpgrade de PE1 en 0x5100
+@72 ns | L1_0 : 0x5100 S -> I (BusUpgrade: invalidacion remota)
+@72 ns | L1_2 : 0x5100 S -> I (BusUpgrade: invalidacion remota)
+@72 ns | L1_1 : 0x5100 S -> M (BusUpgrade: propietario exclusivo)
+@77 ns | Bus: BusRead de PE1 en 0x5180
+@77 ns | L1_1 : 0x5180 I -> S (BusRead: datos de cache compartida)
+@82 ns | Bus: BusUpgrade de PE1 en 0x5180
+@82 ns | L1_0 : 0x5180 S -> I (BusUpgrade: invalidacion remota)
+@82 ns | L1_2 : 0x5180 S -> I (BusUpgrade: invalidacion remota)
+@82 ns | L1_1 : 0x5180 S -> M (BusUpgrade: propietario exclusivo)
+@87 ns | Bus: BusRead de PE1 en 0x5200
+@87 ns | L1_1 : 0x5200 I -> S (BusRead: datos de cache compartida)
+@92 ns | Bus: BusUpgrade de PE1 en 0x5200
+@92 ns | L1_0 : 0x5200 S -> I (BusUpgrade: invalidacion remota)
+@92 ns | L1_2 : 0x5200 S -> I (BusUpgrade: invalidacion remota)
+@92 ns | L1_1 : 0x5200 S -> M (BusUpgrade: propietario exclusivo)
 Waveform VCD: results/waveforms/sim_wave.vcd
 --- Simulacion Finalizada ---
 
 === ESTADISTICAS INTERCONNECT (MSI) ===
-Transacciones totales : 18
-Lecturas              : 8
+Transacciones totales : 20
+Lecturas              : 10
 Escrituras            : 10
-  BusRead             : 8
-  BusReadX            : 6
-  BusUpgrade          : 4
+  BusRead             : 10
+  BusReadX            : 5
+  BusUpgrade          : 5
   BusUpdate           : 0
-  Invalidaciones      : 12
+  Writebacks          : 0
+  Invalidaciones      : 10
   Updates             : 0
-  Downgrades M->S     : 6
+  Downgrades M->S     : 5
 
 === ESTADISTICAS L1 ===
-L1_0 | RH=0 RM=0 WH=1 WM=4 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
-L1_1 | RH=1 RM=4 WH=4 WM=1 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
-L1_2 | RH=1 RM=4 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_0 | RH=0 RM=0 WH=0 WM=5 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_1 | RH=0 RM=5 WH=5 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
+L1_2 | RH=0 RM=5 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)
 L1_3 | RH=0 RM=0 WH=0 WM=0 EV=0 CM=0 | cfg(size=1024B, block=64B, ways=2, repl=LRU, l1_hit=1ns, l1_miss=1ns)

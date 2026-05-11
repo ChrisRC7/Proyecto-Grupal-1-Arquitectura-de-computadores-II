@@ -8,6 +8,8 @@
 
 #include "types.h"
 
+class MainMemory;
+
 class L1Cache;
 
 class Interconnect : public sc_module {
@@ -35,11 +37,14 @@ public:
     TimingConfig timing;
     BusStats stats;
     std::vector<L1Cache*> caches;
+    MainMemory* memory = nullptr;
 
     Interconnect(sc_module_name name, Protocol selected_protocol,
                  const TimingConfig& timing_config);
 
     void register_cache(L1Cache* cache);
+
+    void attach_memory(MainMemory* mem) { memory = mem; }
 
     // Metodo principal: la cache dice exactamente que transaccion necesita
     void issue_transaction(BusTransaction tx, int requester_id, std::uint64_t addr);
@@ -47,10 +52,16 @@ public:
     // Metodos internos para manejar cada tipo de transaccion
     void handle_read(int requester_id, std::uint64_t addr);
     void handle_write(int requester_id, std::uint64_t addr);
+    void handle_writeback(int requester_id, std::uint64_t addr);
 
     void print_stats() const;
 
 private:
+    // Arbitraje FCFS: ticket lock para serializar transacciones del bus
+    std::uint64_t next_ticket = 0;
+    std::uint64_t serving_ticket = 0;
+    sc_event ticket_advanced;
+
     // Implementaciones internas por tipo de transaccion
     void do_bus_read(int requester_id, std::uint64_t addr);
     void do_bus_read_x(int requester_id, std::uint64_t addr);

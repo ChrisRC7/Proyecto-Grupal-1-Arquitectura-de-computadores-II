@@ -108,6 +108,12 @@ L1Cache::CacheLine* L1Cache::allocate_line(std::size_t set_index, std::uint64_t 
         std::uint64_t evicted_block_addr = block_addr_from_line(set_index, victim);
         std::uint64_t evicted_addr =
             evicted_block_addr * static_cast<std::uint64_t>(std::max<std::size_t>(1, config.block_size_bytes));
+
+        if (victim.state == CacheState::M && bus != nullptr) {
+            // Writeback a memoria por eviccion de linea modificada.
+            bus->handle_writeback(cache_id, evicted_addr);
+        }
+
         evictions++;
         wf_evictions = static_cast<sc_dt::sc_uint<64>>(evictions);
         if (count_conflict_miss) {
